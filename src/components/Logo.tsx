@@ -5,9 +5,9 @@ interface LogoProps {
 }
 
 const sizes = {
-  sm: { icon: 28, text: "text-lg", subline: "text-[10px]" },
-  md: { icon: 36, text: "text-xl", subline: "text-xs" },
-  lg: { icon: 48, text: "text-2xl", subline: "text-sm" },
+  sm: { icon: 34, text: "text-lg", subline: "text-[9px]" },
+  md: { icon: 43, text: "text-xl", subline: "text-xs" },
+  lg: { icon: 58, text: "text-2xl", subline: "text-sm" },
 };
 
 function LogoIcon({
@@ -53,7 +53,7 @@ export default function Logo({
 }: LogoProps) {
   const isDark = variant === "dark";
   const textColor = isDark ? "text-white" : "text-navy";
-  const sublineColor = isDark ? "text-white/60" : "text-muted";
+  const sublineColor = isDark ? "text-white/60" : "text-electric";
   const iconColor = isDark ? "#F0F5FA" : "#0B1829";
   const accentColor = isDark ? "#4A90D9" : "#1E5FA8";
   const s = sizes[size];
@@ -68,7 +68,9 @@ export default function Logo({
           Lean AI Studio
         </span>
         {showSubline && (
-          <p className={`${s.subline} ${sublineColor}`}>
+          <p
+            className={`${s.subline} tracking-[0.15em] uppercase ${sublineColor}`}
+          >
             Minder gedoe. Meer resultaat.
           </p>
         )}
