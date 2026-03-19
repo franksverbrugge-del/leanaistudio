@@ -1,16 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #0A0A0A;
-  --color-accent: #6366F1;
-  --color-accent-hover: #4F46E5;
-  --color-bg: #FFFFFF;
-  --color-text: #0A0A0A;
-  --color-text-muted: #6B7280;
-  --color-border: #E5E7EB;
+  --color-navy: #0B1829;
+  --color-steel: #1E5FA8;
+  --color-electric: #4A90D9;
+  --color-softwhite: #F0F5FA;
+  --color-border: #D6E4F0;
+  --color-muted: #8B9AB0;
+
+  --color-primary: var(--color-navy);
+  --color-accent: var(--color-steel);
+  --color-accent-hover: var(--color-electric);
+  --color-bg: var(--color-softwhite);
+  --color-text: var(--color-navy);
+  --color-text-muted: var(--color-muted);
 }
 
 @theme inline {
+  --color-navy: var(--color-navy);
+  --color-steel: var(--color-steel);
+  --color-electric: var(--color-electric);
+  --color-softwhite: var(--color-softwhite);
   --color-primary: var(--color-primary);
   --color-accent: var(--color-accent);
   --color-accent-hover: var(--color-accent-hover);
@@ -20,11 +30,16 @@
   --color-border: var(--color-border);
   --color-background: var(--color-bg);
   --color-foreground: var(--color-text);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-playfair);
 }
 
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  background: var(--color-softwhite);
+  color: var(--color-navy);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-playfair), Georgia, serif;
 }
