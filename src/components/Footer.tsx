@@ -3,7 +3,6 @@ import Logo from "@/components/Logo";
 import DarkSection from "@/components/DarkSection";
 
 const footerLinks = [
-  { href: "/diensten", label: "Diensten" },
   { href: "/cases", label: "Cases" },
   { href: "/over", label: "Over ons" },
   { href: "/contact", label: "Contact" },

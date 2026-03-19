@@ -5,7 +5,6 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 
 const navLinks = [
-  { href: "/diensten", label: "Diensten" },
   { href: "/cases", label: "Cases" },
   { href: "/over", label: "Over ons" },
   { href: "/contact", label: "Contact" },
