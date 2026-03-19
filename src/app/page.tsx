@@ -196,7 +196,7 @@ export default async function HomePage() {
           <h1 className="font-display text-5xl font-bold leading-tight tracking-tight text-navy sm:text-6xl lg:text-7xl">
             Sneller bouwen met AI.
             <br />
-            Minder gedoe, meer resultaat.
+            Minder gedoe. Meer resultaat.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted">
             Wij ontwerpen en bouwen websites, applicaties en bedrijfssystemen met

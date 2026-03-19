@@ -60,25 +60,23 @@ interface TeamMember {
   phone: string | null;
   email: string | null;
   photo_url: string | null;
-  bio: string | null;
 }
 
-interface FallbackMember extends TeamMember {
-  role: string;
-  fallbackBio: string;
+interface FallbackTeamMember {
+  id: string;
+  name: string;
+  phone: string;
+  email: string;
+  photo_url: string | null;
 }
 
-const fallbackTeam: FallbackMember[] = [
+const fallbackTeam: FallbackTeamMember[] = [
   {
     id: "frank",
     name: "Frank Verbrugge",
     phone: "+31 6 57999556",
     email: "frank@leanaistudios.nl",
     photo_url: null,
-    bio: null,
-    role: "Mede-oprichter \u2014 Strategie & Commercie",
-    fallbackBio:
-      "Frank heeft een sterke achtergrond in digitale business en groei. Hij helpt organisaties om technologie in te zetten als versneller van hun bedrijf en vertaalt complexe vraagstukken naar werkende oplossingen.",
   },
   {
     id: "kevin",
@@ -86,24 +84,8 @@ const fallbackTeam: FallbackMember[] = [
     phone: "+31 6 29566643",
     email: "kevin@leanaistudios.nl",
     photo_url: null,
-    bio: null,
-    role: "Mede-oprichter \u2014 Technologie & Ontwikkeling",
-    fallbackBio:
-      "Kevin ontwikkelt schaalbare websites, applicaties en AI-oplossingen met focus op performance en gebruiksgemak. Hij zorgt dat ideeën snel worden omgezet in werkende oplossingen.",
   },
 ];
-
-const roles: Record<string, string> = {
-  "Frank Verbrugge": "Mede-oprichter \u2014 Strategie & Commercie",
-  "Kevin van Oosteren": "Mede-oprichter \u2014 Technologie & Ontwikkeling",
-};
-
-const bios: Record<string, string> = {
-  "Frank Verbrugge":
-    "Frank heeft een sterke achtergrond in digitale business en groei. Hij helpt organisaties om technologie in te zetten als versneller van hun bedrijf en vertaalt complexe vraagstukken naar werkende oplossingen.",
-  "Kevin van Oosteren":
-    "Kevin ontwikkelt schaalbare websites, applicaties en AI-oplossingen met focus op performance en gebruiksgemak. Hij zorgt dat ideeën snel worden omgezet in werkende oplossingen.",
-};
 
 function getInitials(name: string): string {
   return name
@@ -152,7 +134,7 @@ export default async function OverPage() {
     const supabase = await createServerSupabaseClient();
     const { data } = await supabase
       .from("team")
-      .select("id, name, phone, email, photo_url, bio")
+      .select("id, name, phone, email, photo_url")
       .order("order_index");
     if (data && data.length > 0) {
       team = data;
@@ -165,14 +147,13 @@ export default async function OverPage() {
   const displayTeam =
     team.length > 0
       ? team.map((m) => ({
-          ...m,
-          role: roles[m.name] ?? "",
-          displayBio: m.bio ?? bios[m.name] ?? "",
+          id: m.id,
+          name: m.name,
+          phone: m.phone,
+          email: m.email,
+          photo_url: m.photo_url,
         }))
-      : fallbackTeam.map((m) => ({
-          ...m,
-          displayBio: m.bio ?? m.fallbackBio,
-        }));
+      : fallbackTeam;
 
   return (
     <main>
@@ -227,7 +208,7 @@ export default async function OverPage() {
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-muted">
             Wij hebben een eigen AI-gedreven ontwikkelsysteem ontwikkeld dat ons
-            helpt om:
+            helpt met:
           </p>
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
             {verschilKaarten.map((kaart) => (
@@ -244,7 +225,7 @@ export default async function OverPage() {
           </div>
           <p className="mx-auto mt-12 max-w-2xl text-center text-base text-[#1E5FA8]">
             Dit stelt ons in staat om effici&euml;nter te werken dan
-            traditionele bureaus &mdash; en dat zie je terug in snelheid,
+            traditionele partijen, en dat zie je terug in snelheid,
             kwaliteit en kosten.
           </p>
         </div>
@@ -273,13 +254,10 @@ export default async function OverPage() {
                     </span>
                   </div>
                 )}
-                <p className="mt-4 font-display text-xl font-semibold text-white">
+                <p className="mt-4 font-display text-2xl font-semibold text-white">
                   {member.name}
                 </p>
-                <p className="mt-1 text-sm text-white/60">{member.role}</p>
-                <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/80">
-                  {member.displayBio}
-                </p>
+                <p className="mt-1 text-sm text-[#4A90D9]">Eigenaar</p>
                 <div className="mt-4 flex flex-col gap-1">
                   {member.phone && (
                     <a
@@ -348,7 +326,19 @@ export default async function OverPage() {
         </div>
       </DarkSection>
 
-      {/* Sectie 7 — CTA */}
+      {/* Sectie 7 — Minder gedoe */}
+      <DarkSection>
+        <div className="mx-auto max-w-4xl px-6 py-32 text-center sm:py-40">
+          <p className="font-display text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
+            Minder gedoe.
+          </p>
+          <p className="mt-4 font-display text-5xl font-bold text-white sm:text-6xl lg:text-7xl">
+            Meer resultaat.
+          </p>
+        </div>
+      </DarkSection>
+
+      {/* Sectie 8 — CTA */}
       <section style={{ backgroundColor: "#F0F5FA" }}>
         <div className="mx-auto max-w-4xl px-6 py-24 text-center">
           <h2 className="font-display text-3xl font-bold text-navy sm:text-4xl">
