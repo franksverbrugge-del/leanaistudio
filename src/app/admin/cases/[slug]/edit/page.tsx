@@ -52,6 +52,7 @@ export default function EditCasePage({
         .single();
 
       if (data) {
+        console.log("[cases] Loaded from Supabase:", JSON.stringify({ hero_image_url: data.hero_image_url, featured: data.featured, category: data.category }, null, 2));
         setForm({
           id: data.id,
           title: data.title,
@@ -102,8 +103,10 @@ export default function EditCasePage({
     }
 
     const { data: urlData } = supabase.storage.from("media").getPublicUrl(path);
-    setForm((p) => p && { ...p, hero_image_url: urlData.publicUrl });
-    setImagePreview(urlData.publicUrl);
+    const publicUrl = urlData.publicUrl;
+    console.log("[hero_image_url] Upload succesvol, URL:", publicUrl);
+    setForm((p) => p && { ...p, hero_image_url: publicUrl });
+    setImagePreview(publicUrl);
     setUploading(false);
   }
 
@@ -114,32 +117,34 @@ export default function EditCasePage({
     setSaving(true);
 
     const supabase = createClient();
+    const payload = {
+      title: form.title,
+      slug: form.slug || slugify(form.title),
+      client: form.client,
+      description: form.description,
+      challenge: form.challenge,
+      solution: form.solution,
+      result: form.result,
+      tags: form.tags
+        .split(",")
+        .map((t) => t.trim())
+        .filter(Boolean),
+      image_url: form.image_url || null,
+      featured: form.featured,
+      category: form.category || null,
+      hero_image_url: form.hero_image_url || null,
+      client_quote: form.client_quote || null,
+      client_quote_author: form.client_quote_author || null,
+      duration: form.duration || null,
+      result_stat_1_value: form.result_stat_1_value || null,
+      result_stat_1_label: form.result_stat_1_label || null,
+      result_stat_2_value: form.result_stat_2_value || null,
+      result_stat_2_label: form.result_stat_2_label || null,
+    };
+    console.log("[cases] Update payload:", JSON.stringify(payload, null, 2));
     const { error } = await supabase
       .from("cases")
-      .update({
-        title: form.title,
-        slug: form.slug || slugify(form.title),
-        client: form.client,
-        description: form.description,
-        challenge: form.challenge,
-        solution: form.solution,
-        result: form.result,
-        tags: form.tags
-          .split(",")
-          .map((t) => t.trim())
-          .filter(Boolean),
-        image_url: form.image_url || null,
-        featured: form.featured,
-        category: form.category || null,
-        hero_image_url: form.hero_image_url || null,
-        client_quote: form.client_quote || null,
-        client_quote_author: form.client_quote_author || null,
-        duration: form.duration || null,
-        result_stat_1_value: form.result_stat_1_value || null,
-        result_stat_1_label: form.result_stat_1_label || null,
-        result_stat_2_value: form.result_stat_2_value || null,
-        result_stat_2_label: form.result_stat_2_label || null,
-      })
+      .update(payload)
       .eq("id", form.id);
 
     if (error) {
@@ -254,12 +259,21 @@ export default function EditCasePage({
               className="mt-3 h-40 rounded-lg object-cover"
             />
           )}
-          {form.hero_image_url && !imagePreview && (
-            <p className="mt-2 text-xs text-text-muted break-all">
+          {imagePreview && (
+            <p className="mt-1 text-xs text-text-muted break-all">
               {form.hero_image_url}
             </p>
           )}
         </div>
+        <Field
+          label="Hero afbeelding URL (handmatig)"
+          value={form.hero_image_url}
+          onChange={(v) => {
+            setForm((p) => p && { ...p, hero_image_url: v });
+            setImagePreview(v || null);
+          }}
+          placeholder="Wordt automatisch ingevuld na upload"
+        />
 
         <TextArea
           label="Klant quote"
