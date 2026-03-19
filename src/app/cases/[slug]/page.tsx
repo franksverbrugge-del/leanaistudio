@@ -43,7 +43,7 @@ export default async function CaseDetailPage({ params }: PageProps) {
       <DarkSection>
         <div className="mx-auto max-w-4xl px-6 py-28 sm:py-36">
           {c.category && (
-            <span className="inline-block rounded-md bg-[#1A2E45] px-3 py-1 text-xs font-medium text-[#4A90D9]">
+            <span className="inline-block rounded-md bg-[#1A2E45] px-3 py-1 text-xs font-medium text-[#38BDF8]">
               {c.category}
             </span>
           )}
@@ -64,13 +64,13 @@ export default async function CaseDetailPage({ params }: PageProps) {
 
       {/* Hero afbeelding */}
       {c.hero_image_url && (
-        <section style={{ backgroundColor: "#F0F5FA" }}>
+        <section style={{ backgroundColor: "#F0F7FF" }}>
           <div className="mx-auto max-w-[900px] px-6 py-12">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={c.hero_image_url}
               alt={c.title}
-              className="w-full rounded-xl border border-[#D6E4F0] object-cover shadow-md"
+              className="w-full rounded-xl border border-[#DBEAFE] object-cover shadow-md"
               style={{ maxHeight: 480 }}
             />
           </div>
@@ -79,13 +79,13 @@ export default async function CaseDetailPage({ params }: PageProps) {
 
       {/* Sectie 2 — Quote (alleen als gevuld) */}
       {c.client_quote && (
-        <section style={{ backgroundColor: "#F0F5FA" }}>
+        <section style={{ backgroundColor: "#F0F7FF" }}>
           <div className="mx-auto max-w-3xl px-6 py-20 text-center">
-            <blockquote className="font-display text-2xl italic leading-relaxed text-[#0B1829] sm:text-3xl">
+            <blockquote className="font-display text-2xl italic leading-relaxed text-[#0F172A] sm:text-3xl">
               &ldquo;{c.client_quote}&rdquo;
             </blockquote>
             {c.client_quote_author && (
-              <p className="mt-4 text-base text-[#1E5FA8]">
+              <p className="mt-4 text-base text-[#2563EB]">
                 &mdash; {c.client_quote_author}
               </p>
             )}
@@ -127,11 +127,11 @@ export default async function CaseDetailPage({ params }: PageProps) {
       )}
 
       {/* Sectie 4 — Het verhaal */}
-      <section style={{ backgroundColor: "#F0F5FA" }}>
+      <section style={{ backgroundColor: "#F0F7FF" }}>
         <div className="mx-auto max-w-5xl px-6 py-24">
           <div className="grid gap-12 sm:grid-cols-3">
             <div>
-              <h3 className="font-display text-lg font-semibold text-[#0B1829]">
+              <h3 className="font-display text-lg font-semibold text-[#0F172A]">
                 De uitdaging
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-[#374151]">
@@ -139,7 +139,7 @@ export default async function CaseDetailPage({ params }: PageProps) {
               </p>
             </div>
             <div>
-              <h3 className="font-display text-lg font-semibold text-[#0B1829]">
+              <h3 className="font-display text-lg font-semibold text-[#0F172A]">
                 De oplossing
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-[#374151]">
@@ -147,7 +147,7 @@ export default async function CaseDetailPage({ params }: PageProps) {
               </p>
             </div>
             <div>
-              <h3 className="font-display text-lg font-semibold text-[#0B1829]">
+              <h3 className="font-display text-lg font-semibold text-[#0F172A]">
                 Het resultaat
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-[#374151]">
@@ -171,7 +171,7 @@ export default async function CaseDetailPage({ params }: PageProps) {
           </div>
           <Link
             href="/contact"
-            className="shrink-0 rounded-md bg-[#4A90D9] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#3A7BC8]"
+            className="shrink-0 rounded-md bg-[#38BDF8] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#3A7BC8]"
           >
             Plan een kennismaking
           </Link>

@@ -14,8 +14,8 @@ export default function DarkSection({
       className={`bg-navy ${className}`}
       style={{
         backgroundImage: [
-          "linear-gradient(rgba(30, 95, 168, 0.15) 1px, transparent 1px)",
-          "linear-gradient(90deg, rgba(30, 95, 168, 0.15) 1px, transparent 1px)",
+          "linear-gradient(rgba(37, 99, 235, 0.15) 1px, transparent 1px)",
+          "linear-gradient(90deg, rgba(37, 99, 235, 0.15) 1px, transparent 1px)",
         ].join(", "),
         backgroundSize: "40px 40px",
       }}

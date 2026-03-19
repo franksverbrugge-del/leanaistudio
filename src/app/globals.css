@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --color-navy: #0B1829;
-  --color-steel: #1E5FA8;
-  --color-electric: #4A90D9;
-  --color-softwhite: #F0F5FA;
-  --color-border: #D6E4F0;
+  --color-navy: #0F172A;
+  --color-steel: #2563EB;
+  --color-electric: #38BDF8;
+  --color-softwhite: #F0F7FF;
+  --color-border: #DBEAFE;
   --color-muted: #8B9AB0;
 
   --color-primary: var(--color-navy);

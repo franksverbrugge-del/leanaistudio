@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 function CheckIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="shrink-0">
-      <path d="M5 13L9 17L19 7" stroke="#4A90D9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5 13L9 17L19 7" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -102,7 +102,7 @@ export default async function ContactPage() {
   return (
     <main>
       {/* Sectie 1 — Hero */}
-      <section style={{ backgroundColor: "#F0F5FA" }}>
+      <section style={{ backgroundColor: "#F0F7FF" }}>
         <div className="mx-auto max-w-4xl px-6 py-28 text-center sm:py-36">
           <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-navy sm:text-5xl lg:text-6xl">
             Klaar om slimmer te werken met AI?
@@ -127,7 +127,7 @@ export default async function ContactPage() {
           <h2 className="text-center font-display text-3xl font-bold text-white sm:text-4xl">
             Plan een kennismaking
           </h2>
-          <div className="mx-auto mt-12 max-w-2xl rounded-xl border border-[#1E5FA8] bg-[#1A2E45] p-8 sm:p-10">
+          <div className="mx-auto mt-12 max-w-2xl rounded-xl border border-[#2563EB] bg-[#1A2E45] p-8 sm:p-10">
             <p className="text-lg font-medium text-white">
               In een kort gesprek kijken we samen naar:
             </p>
@@ -140,7 +140,7 @@ export default async function ContactPage() {
               ))}
             </div>
             <div className="mt-8 flex justify-center">
-              <span className="rounded-full bg-[#0B3060] px-4 py-1.5 text-sm font-medium text-[#4A90D9]">
+              <span className="rounded-full bg-[#0B3060] px-4 py-1.5 text-sm font-medium text-[#38BDF8]">
                 Vrijblijvend en direct praktisch
               </span>
             </div>
@@ -148,7 +148,7 @@ export default async function ContactPage() {
           <div className="mt-10 flex justify-center">
             <a
               href="mailto:frank@leanaistudios.nl"
-              className="rounded-md bg-[#4A90D9] px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-[#3A7BC8]"
+              className="rounded-md bg-[#38BDF8] px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-[#3A7BC8]"
             >
               Plan een kennismaking
             </a>
@@ -157,7 +157,7 @@ export default async function ContactPage() {
       </DarkSection>
 
       {/* Sectie 3 — Liever direct contact? */}
-      <section style={{ backgroundColor: "#F0F5FA" }}>
+      <section style={{ backgroundColor: "#F0F7FF" }}>
         <div className="mx-auto max-w-4xl px-6 py-24">
           <h2 className="text-center font-display text-3xl font-bold text-navy sm:text-4xl">
             Liever direct contact opnemen?
@@ -169,7 +169,7 @@ export default async function ContactPage() {
             {displayTeam.map((member) => (
               <div
                 key={member.id}
-                className="flex flex-col items-center rounded-xl border border-[#D6E4F0] bg-white p-8 shadow-sm"
+                className="flex flex-col items-center rounded-xl border border-[#DBEAFE] bg-white p-8 shadow-sm"
               >
                 {member.photo_url ? (
                   /* eslint-disable-next-line @next/next/no-img-element */
@@ -179,21 +179,21 @@ export default async function ContactPage() {
                     className="h-20 w-20 rounded-full object-cover"
                   />
                 ) : (
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#1E5FA8]">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#2563EB]">
                     <span className="font-display text-xl font-bold text-white">
                       {getInitials(member.name)}
                     </span>
                   </div>
                 )}
-                <p className="mt-4 font-display text-2xl font-semibold text-[#0B1829]">
+                <p className="mt-4 font-display text-2xl font-semibold text-[#0F172A]">
                   {member.name}
                 </p>
-                <p className="mt-1 text-sm text-[#1E5FA8]">Eigenaar</p>
+                <p className="mt-1 text-sm text-[#2563EB]">Eigenaar</p>
                 <div className="mt-4 flex flex-col gap-1">
                   {member.phone && (
                     <a
                       href={`tel:${member.phone.replace(/\s/g, "")}`}
-                      className="text-sm text-[#4A90D9] transition-colors hover:text-[#3A7BC8]"
+                      className="text-sm text-[#38BDF8] transition-colors hover:text-[#3A7BC8]"
                     >
                       {member.phone}
                     </a>
@@ -201,7 +201,7 @@ export default async function ContactPage() {
                   {member.email && (
                     <a
                       href={`mailto:${member.email}`}
-                      className="text-sm text-[#4A90D9] transition-colors hover:text-[#3A7BC8]"
+                      className="text-sm text-[#38BDF8] transition-colors hover:text-[#3A7BC8]"
                     >
                       {member.email}
                     </a>
