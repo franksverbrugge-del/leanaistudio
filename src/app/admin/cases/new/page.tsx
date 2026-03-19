@@ -87,8 +87,10 @@ export default function NewCasePage() {
     }
 
     const { data: urlData } = supabase.storage.from("media").getPublicUrl(path);
-    setForm((prev) => ({ ...prev, hero_image_url: urlData.publicUrl }));
-    setImagePreview(urlData.publicUrl);
+    const publicUrl = urlData.publicUrl;
+    console.log("[hero_image_url] Upload succesvol, URL:", publicUrl);
+    setForm((prev) => ({ ...prev, hero_image_url: publicUrl }));
+    setImagePreview(publicUrl);
     setUploading(false);
   }
 
@@ -98,7 +100,7 @@ export default function NewCasePage() {
     setSaving(true);
 
     const supabase = createClient();
-    const { error } = await supabase.from("cases").insert({
+    const payload = {
       title: form.title,
       slug: form.slug || slugify(form.title),
       client: form.client,
@@ -121,7 +123,9 @@ export default function NewCasePage() {
       result_stat_1_label: form.result_stat_1_label || null,
       result_stat_2_value: form.result_stat_2_value || null,
       result_stat_2_label: form.result_stat_2_label || null,
-    });
+    };
+    console.log("[cases] Insert payload:", JSON.stringify(payload, null, 2));
+    const { error } = await supabase.from("cases").insert(payload);
 
     if (error) {
       setError(error.message);
@@ -232,12 +236,21 @@ export default function NewCasePage() {
               className="mt-3 h-40 rounded-lg object-cover"
             />
           )}
-          {form.hero_image_url && !imagePreview && (
-            <p className="mt-2 text-xs text-text-muted break-all">
+          {imagePreview && (
+            <p className="mt-1 text-xs text-text-muted break-all">
               {form.hero_image_url}
             </p>
           )}
         </div>
+        <Field
+          label="Hero afbeelding URL (handmatig)"
+          value={form.hero_image_url}
+          onChange={(v) => {
+            setForm((p) => ({ ...p, hero_image_url: v }));
+            setImagePreview(v || null);
+          }}
+          placeholder="Wordt automatisch ingevuld na upload"
+        />
 
         <TextArea
           label="Klant quote"

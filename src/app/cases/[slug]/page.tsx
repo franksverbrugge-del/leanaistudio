@@ -41,39 +41,41 @@ export default async function CaseDetailPage({ params }: PageProps) {
     <main>
       {/* Sectie 1 — Hero */}
       <DarkSection>
-        <div className="relative">
-          {c.hero_image_url && (
-            <div className="absolute inset-0 overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={c.hero_image_url}
-                alt=""
-                className="h-full w-full object-cover opacity-20"
-              />
-              <div className="absolute inset-0 bg-[#0B1829]/60" />
-            </div>
+        <div className="mx-auto max-w-4xl px-6 py-28 sm:py-36">
+          {c.category && (
+            <span className="inline-block rounded-md bg-[#1A2E45] px-3 py-1 text-xs font-medium text-[#4A90D9]">
+              {c.category}
+            </span>
           )}
-          <div className="relative mx-auto max-w-4xl px-6 py-28 sm:py-36">
-            {c.category && (
-              <span className="inline-block rounded-md bg-[#1A2E45] px-3 py-1 text-xs font-medium text-[#4A90D9]">
-                {c.category}
-              </span>
+          <h1 className="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+            {c.title}
+          </h1>
+          <div className="mt-4 flex flex-wrap gap-4 text-sm text-[#8B9AB0]">
+            <span>{c.client}</span>
+            {c.duration && (
+              <>
+                <span>&middot;</span>
+                <span>{c.duration}</span>
+              </>
             )}
-            <h1 className="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-              {c.title}
-            </h1>
-            <div className="mt-4 flex flex-wrap gap-4 text-sm text-[#8B9AB0]">
-              <span>{c.client}</span>
-              {c.duration && (
-                <>
-                  <span>&middot;</span>
-                  <span>{c.duration}</span>
-                </>
-              )}
-            </div>
           </div>
         </div>
       </DarkSection>
+
+      {/* Hero afbeelding */}
+      {c.hero_image_url && (
+        <section style={{ backgroundColor: "#F0F5FA" }}>
+          <div className="mx-auto max-w-[900px] px-6 py-12">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={c.hero_image_url}
+              alt={c.title}
+              className="w-full rounded-xl border border-[#D6E4F0] object-cover shadow-md"
+              style={{ maxHeight: 480 }}
+            />
+          </div>
+        </section>
+      )}
 
       {/* Sectie 2 — Quote (alleen als gevuld) */}
       {c.client_quote && (
