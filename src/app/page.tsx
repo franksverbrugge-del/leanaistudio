@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import DarkSection from "@/components/DarkSection";
 
 export const metadata: Metadata = {
   title: "Lean AI Studio — AI-oplossingen voor bedrijven",
@@ -93,7 +94,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats */}
-      <section className="bg-navy">
+      <DarkSection>
         <div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 sm:grid-cols-3">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
@@ -106,7 +107,7 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-      </section>
+      </DarkSection>
 
       {/* Diensten preview */}
       <section className="bg-softwhite">

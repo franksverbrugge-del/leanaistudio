@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
+import DarkSection from "@/components/DarkSection";
 
 const footerLinks = [
   { href: "/diensten", label: "Diensten" },
@@ -10,7 +11,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-navy">
+    <DarkSection as="footer" className="relative">
       {/* Accent streep */}
       <div className="h-1 bg-electric" />
 
@@ -39,6 +40,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-    </footer>
+    </DarkSection>
   );
 }
