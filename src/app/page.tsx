@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 function StrategyIcon() {
   return (
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <circle cx="16" cy="16" r="12" stroke="#4A90D9" strokeWidth="2" />
-      <circle cx="16" cy="16" r="4" fill="#4A90D9" />
-      <path d="M16 4V8M16 24V28M4 16H8M24 16H28" stroke="#4A90D9" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="16" cy="16" r="12" stroke="#1E5FA8" strokeWidth="2" />
+      <circle cx="16" cy="16" r="4" fill="#1E5FA8" />
+      <path d="M16 4V8M16 24V28M4 16H8M24 16H28" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -20,8 +20,8 @@ function StrategyIcon() {
 function ImplementatieIcon() {
   return (
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <rect x="4" y="8" width="24" height="16" rx="2" stroke="#4A90D9" strokeWidth="2" />
-      <path d="M12 14L15 17L20 12" stroke="#4A90D9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="4" y="8" width="24" height="16" rx="2" stroke="#1E5FA8" strokeWidth="2" />
+      <path d="M12 14L15 17L20 12" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -29,8 +29,8 @@ function ImplementatieIcon() {
 function TrainingIcon() {
   return (
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <path d="M16 6L28 12L16 18L4 12L16 6Z" stroke="#4A90D9" strokeWidth="2" strokeLinejoin="round" />
-      <path d="M8 14V22L16 26L24 22V14" stroke="#4A90D9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M16 6L28 12L16 18L4 12L16 6Z" stroke="#1E5FA8" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M8 14V22L16 26L24 22V14" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -66,7 +66,7 @@ export default function HomePage() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-white">
+      <section className="bg-softwhite">
         <div className="mx-auto max-w-6xl px-6 py-36 text-center sm:py-44">
           <h1 className="font-display text-5xl font-bold leading-tight tracking-tight text-navy sm:text-6xl lg:text-7xl">
             AI die werkt voor jouw bedrijf
@@ -109,22 +109,22 @@ export default function HomePage() {
       </section>
 
       {/* Diensten preview */}
-      <section className="bg-navy">
-        <div className="mx-auto max-w-6xl px-6 pb-24 pt-8">
-          <h2 className="text-center font-display text-sm font-semibold uppercase tracking-widest text-electric">
+      <section className="bg-softwhite">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <h2 className="text-center font-display text-sm font-semibold uppercase tracking-widest text-steel">
             Wat we doen
           </h2>
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
             {diensten.map((dienst) => (
               <div
                 key={dienst.title}
-                className="rounded-xl border border-steel bg-[#1A2E45] p-8 transition-shadow hover:shadow-lg hover:shadow-steel/10"
+                className="rounded-xl border border-border bg-white p-8 transition-shadow hover:shadow-md"
               >
                 <dienst.Icon />
-                <h3 className="mt-5 font-display text-lg font-semibold text-white">
+                <h3 className="mt-5 font-display text-lg font-semibold text-navy">
                   {dienst.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/60">
+                <p className="mt-3 text-sm leading-relaxed text-[#374151]">
                   {dienst.description}
                 </p>
               </div>

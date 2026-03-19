@@ -16,7 +16,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-border bg-white/95 backdrop-blur-sm">
-      <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between px-6">
+      <div className="mx-auto flex h-[80px] max-w-6xl items-center justify-between px-6">
         <Link href="/" onClick={() => setOpen(false)}>
           <Logo variant="light" size="sm" showSubline />
         </Link>

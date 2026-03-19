@@ -5,8 +5,8 @@ interface LogoProps {
 }
 
 const sizes = {
-  sm: { icon: 34, text: "text-lg", subline: "text-[9px]" },
-  md: { icon: 43, text: "text-xl", subline: "text-xs" },
+  sm: { icon: 48, text: "text-[20px]", subline: "text-[9px]" },
+  md: { icon: 48, text: "text-xl", subline: "text-xs" },
   lg: { icon: 58, text: "text-2xl", subline: "text-sm" },
 };
 
