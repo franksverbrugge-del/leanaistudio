@@ -313,7 +313,7 @@ export default async function HomePage() {
           <p className="mt-4 text-center text-lg text-white/60">
             Neem direct contact op met Frank of Kevin.
           </p>
-          <div className="mt-14 grid gap-8 sm:grid-cols-2 sm:gap-12">
+          <div className="mt-14 flex flex-col items-center gap-8 sm:flex-row sm:justify-center sm:gap-8">
             {team.map((member) => (
               <div key={member.id} className="flex flex-col items-center text-center">
                 {member.photo_url ? (
