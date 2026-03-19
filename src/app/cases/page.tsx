@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllCases } from "@/lib/cases";
+import { getCases } from "@/lib/cases";
 
 export const metadata: Metadata = {
   title: "Cases — Lean AI Studio",
@@ -8,8 +8,8 @@ export const metadata: Metadata = {
     "Bekijk hoe we Nederlandse bedrijven helpen met AI-oplossingen. Van chatbots tot predictive maintenance.",
 };
 
-export default function CasesPage() {
-  const cases = getAllCases();
+export default async function CasesPage() {
+  const cases = await getCases();
 
   return (
     <main>

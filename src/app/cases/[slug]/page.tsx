@@ -8,14 +8,15 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+  const slugs = await getAllSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const c = getCaseBySlug(slug);
+  const c = await getCaseBySlug(slug);
 
   if (!c) {
     return { title: "Case niet gevonden — Lean AI Studio" };
@@ -29,7 +30,7 @@ export async function generateMetadata({
 
 export default async function CaseDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const c = getCaseBySlug(slug);
+  const c = await getCaseBySlug(slug);
 
   if (!c) {
     notFound();
