@@ -35,3 +35,14 @@ export interface MediaFile {
   url: string;
   created_at: string;
 }
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  phone: string | null;
+  email: string | null;
+  photo_url: string | null;
+  bio: string | null;
+  order_index: number;
+  created_at: string;
+}

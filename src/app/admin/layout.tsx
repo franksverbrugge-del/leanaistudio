@@ -12,6 +12,7 @@ const navItems = [
   { label: "Diensten", href: "/admin/diensten" },
   { label: "Media", href: "/admin/media" },
   { label: "Navigatie", href: "/admin/navigatie" },
+  { label: "Team", href: "/admin/team" },
 ];
 
 export default function AdminLayout({
