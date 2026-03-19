@@ -12,36 +12,53 @@ const sizes = {
 
 function LogoIcon({
   size,
-  color,
-  accent,
+  variant,
 }: {
   size: number;
-  color: string;
-  accent: string;
+  variant: "light" | "dark";
 }) {
+  const isDark = variant === "dark";
+  const stripeColor = isDark ? "#38BDF8" : "#2563EB";
+  const blockFill = isDark ? "#FFFFFF" : "#0F172A";
+  const innerStripe = isDark ? "#2563EB" : "#38BDF8";
+  const curveColor = "#2563EB";
+
+  // Scale factor relative to 80x50 viewBox
+  const scale = size / 48;
+
   return (
     <svg
-      width={size}
-      height={size}
-      viewBox="0 0 48 48"
+      width={80 * scale}
+      height={50 * scale}
+      viewBox="0 0 80 50"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      {/* Input blocks */}
-      <rect x="2" y="8" width="10" height="10" rx="2" fill={accent} />
-      <rect x="2" y="20" width="10" height="10" rx="2" fill={accent} opacity="0.7" />
-      <rect x="2" y="32" width="10" height="10" rx="2" fill={accent} opacity="0.4" />
-      {/* Arrow */}
+      {/* 6 horizontal stripes */}
+      <rect x="0" y="0" width="22" height="5" rx="2.5" fill={stripeColor} opacity="0.2" />
+      <rect x="0" y="9" width="30" height="5" rx="2.5" fill={stripeColor} opacity="0.35" />
+      <rect x="0" y="18" width="18" height="5" rx="2.5" fill={stripeColor} opacity="0.2" />
+      <rect x="0" y="27" width="26" height="5" rx="2.5" fill={stripeColor} opacity="0.35" />
+      <rect x="0" y="36" width="20" height="5" rx="2.5" fill={stripeColor} opacity="0.2" />
+      <rect x="0" y="45" width="28" height="5" rx="2.5" fill={stripeColor} opacity="0.35" />
+
+      {/* Compression curve */}
       <path
-        d="M16 24H32M32 24L27 19M32 24L27 29"
-        stroke={color}
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M32 0 Q44 25 44 25 Q44 25 32 50"
+        stroke={curveColor}
+        strokeWidth="1.5"
+        opacity="0.4"
+        fill="none"
       />
+
       {/* Result block */}
-      <rect x="36" y="14" width="10" height="20" rx="2" fill={accent} />
+      <rect x="48" y="8" width="32" height="34" rx="9" fill={blockFill} />
+
+      {/* 3 inner stripes */}
+      <rect x="56" y="14" width="16" height="3.5" rx="1.75" fill={innerStripe} />
+      <rect x="56" y="23" width="10" height="3.5" rx="1.75" fill={innerStripe} opacity="0.5" />
+      <rect x="56" y="32" width="16" height="3.5" rx="1.75" fill={innerStripe} />
     </svg>
   );
 }
@@ -53,14 +70,12 @@ export default function Logo({
 }: LogoProps) {
   const isDark = variant === "dark";
   const textColor = isDark ? "text-white" : "text-navy";
-  const sublineColor = isDark ? "text-white/60" : "text-electric";
-  const iconColor = isDark ? "#F0F5FA" : "#0B1829";
-  const accentColor = isDark ? "#4A90D9" : "#1E5FA8";
+  const sublineColor = isDark ? "text-electric" : "text-steel";
   const s = sizes[size];
 
   return (
-    <div className="flex items-center gap-2.5">
-      <LogoIcon size={s.icon} color={iconColor} accent={accentColor} />
+    <div className="flex items-center gap-3.5">
+      <LogoIcon size={s.icon} variant={variant} />
       <div>
         <span
           className={`font-display font-bold tracking-tight ${s.text} ${textColor}`}

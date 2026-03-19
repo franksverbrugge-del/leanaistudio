@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 function WebsiteIcon() {
   return (
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <rect x="4" y="6" width="24" height="20" rx="2" stroke="#1E5FA8" strokeWidth="2" />
-      <path d="M4 12H28" stroke="#1E5FA8" strokeWidth="2" />
-      <circle cx="8" cy="9" r="1" fill="#1E5FA8" />
-      <circle cx="12" cy="9" r="1" fill="#1E5FA8" />
+      <rect x="4" y="6" width="24" height="20" rx="2" stroke="#2563EB" strokeWidth="2" />
+      <path d="M4 12H28" stroke="#2563EB" strokeWidth="2" />
+      <circle cx="8" cy="9" r="1" fill="#2563EB" />
+      <circle cx="12" cy="9" r="1" fill="#2563EB" />
     </svg>
   );
 }
@@ -23,9 +23,9 @@ function WebsiteIcon() {
 function AIIcon() {
   return (
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <circle cx="16" cy="16" r="12" stroke="#1E5FA8" strokeWidth="2" />
-      <circle cx="16" cy="16" r="4" fill="#1E5FA8" />
-      <path d="M16 4V8M16 24V28M4 16H8M24 16H28" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="16" cy="16" r="12" stroke="#2563EB" strokeWidth="2" />
+      <circle cx="16" cy="16" r="4" fill="#2563EB" />
+      <path d="M16 4V8M16 24V28M4 16H8M24 16H28" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -33,8 +33,8 @@ function AIIcon() {
 function SystemIcon() {
   return (
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <rect x="4" y="8" width="24" height="16" rx="2" stroke="#1E5FA8" strokeWidth="2" />
-      <path d="M12 14L15 17L20 12" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="4" y="8" width="24" height="16" rx="2" stroke="#2563EB" strokeWidth="2" />
+      <path d="M12 14L15 17L20 12" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -42,7 +42,7 @@ function SystemIcon() {
 function CheckIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M5 13L9 17L19 7" stroke="#4A90D9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5 13L9 17L19 7" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -50,12 +50,12 @@ function CheckIcon() {
 function CalendarIcon() {
   return (
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <rect x="6" y="10" width="28" height="24" rx="3" stroke="#1E5FA8" strokeWidth="2" />
-      <path d="M6 18H34" stroke="#1E5FA8" strokeWidth="2" />
-      <path d="M14 6V12M26 6V12" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" />
-      <rect x="12" y="23" width="4" height="4" rx="1" fill="#1E5FA8" />
-      <rect x="18" y="23" width="4" height="4" rx="1" fill="#1E5FA8" />
-      <rect x="24" y="23" width="4" height="4" rx="1" fill="#1E5FA8" />
+      <rect x="6" y="10" width="28" height="24" rx="3" stroke="#2563EB" strokeWidth="2" />
+      <path d="M6 18H34" stroke="#2563EB" strokeWidth="2" />
+      <path d="M14 6V12M26 6V12" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
+      <rect x="12" y="23" width="4" height="4" rx="1" fill="#2563EB" />
+      <rect x="18" y="23" width="4" height="4" rx="1" fill="#2563EB" />
+      <rect x="24" y="23" width="4" height="4" rx="1" fill="#2563EB" />
     </svg>
   );
 }
@@ -63,8 +63,8 @@ function CalendarIcon() {
 function SearchIcon() {
   return (
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <circle cx="18" cy="18" r="10" stroke="#1E5FA8" strokeWidth="2" />
-      <path d="M25 25L34 34" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="18" cy="18" r="10" stroke="#2563EB" strokeWidth="2" />
+      <path d="M25 25L34 34" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -72,15 +72,15 @@ function SearchIcon() {
 function GearIcon() {
   return (
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <circle cx="20" cy="20" r="6" stroke="#1E5FA8" strokeWidth="2" />
-      <path d="M20 4V8M20 32V36M4 20H8M32 20H36M8.8 8.8L11.6 11.6M28.4 28.4L31.2 31.2M31.2 8.8L28.4 11.6M11.6 28.4L8.8 31.2" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="20" cy="20" r="6" stroke="#2563EB" strokeWidth="2" />
+      <path d="M20 4V8M20 32V36M4 20H8M32 20H36M8.8 8.8L11.6 11.6M28.4 28.4L31.2 31.2M31.2 8.8L28.4 11.6M11.6 28.4L8.8 31.2" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }
 
 function ArrowIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="text-[#1E5FA8]">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="text-[#2563EB]">
       <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -279,7 +279,7 @@ export default async function HomePage() {
       </DarkSection>
 
       {/* Hoe we samenwerken */}
-      <section style={{ backgroundColor: "#F0F5FA" }}>
+      <section style={{ backgroundColor: "#F0F7FF" }}>
         <div className="mx-auto max-w-6xl px-6 py-24">
           <h2 className="text-center font-display text-sm font-semibold uppercase tracking-widest text-steel">
             Hoe we samenwerken
@@ -289,7 +289,7 @@ export default async function HomePage() {
               <Link
                 key={blok.title}
                 href={blok.href}
-                className="group relative flex cursor-pointer flex-col items-center rounded-xl border border-[#D6E4F0] bg-white p-8 text-center transition-shadow hover:shadow-md"
+                className="group relative flex cursor-pointer flex-col items-center rounded-xl border border-[#DBEAFE] bg-white p-8 text-center transition-shadow hover:shadow-md"
               >
                 <blok.Icon />
                 <h3 className="mt-5 font-display text-lg font-semibold text-navy">
@@ -324,7 +324,7 @@ export default async function HomePage() {
                     className="h-20 w-20 rounded-full object-cover"
                   />
                 ) : (
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#1E5FA8]">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#2563EB]">
                     <span className="font-display text-xl font-bold text-white">
                       {getInitials(member.name)}
                     </span>
@@ -336,7 +336,7 @@ export default async function HomePage() {
                 {member.phone && (
                   <a
                     href={`tel:${member.phone.replace(/\s/g, "")}`}
-                    className="mt-2 text-sm text-[#4A90D9] transition-colors hover:text-[#6AABEF]"
+                    className="mt-2 text-sm text-[#38BDF8] transition-colors hover:text-[#6AABEF]"
                   >
                     {member.phone}
                   </a>
@@ -344,7 +344,7 @@ export default async function HomePage() {
                 {member.email && (
                   <a
                     href={`mailto:${member.email}`}
-                    className="mt-1 text-sm text-[#4A90D9] transition-colors hover:text-[#6AABEF]"
+                    className="mt-1 text-sm text-[#38BDF8] transition-colors hover:text-[#6AABEF]"
                   >
                     {member.email}
                   </a>

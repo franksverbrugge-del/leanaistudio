@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 function CheckIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="shrink-0">
-      <path d="M5 13L9 17L19 7" stroke="#4A90D9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5 13L9 17L19 7" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -22,10 +22,10 @@ function CheckIcon() {
 function SpeedIcon() {
   return (
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <circle cx="20" cy="22" r="14" stroke="#1E5FA8" strokeWidth="2" />
-      <path d="M20 22L28 14" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" />
-      <path d="M14 10H26" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" />
-      <path d="M20 8V10" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="20" cy="22" r="14" stroke="#2563EB" strokeWidth="2" />
+      <path d="M20 22L28 14" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
+      <path d="M14 10H26" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
+      <path d="M20 8V10" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -33,9 +33,9 @@ function SpeedIcon() {
 function BrainIcon() {
   return (
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <path d="M20 6C14 6 10 10 10 16C10 20 12 23 15 25V32H25V25C28 23 30 20 30 16C30 10 26 6 20 6Z" stroke="#1E5FA8" strokeWidth="2" strokeLinejoin="round" />
-      <path d="M16 32H24M17 28H23" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" />
-      <path d="M16 16C16 14.5 17 13 20 13C23 13 24 14.5 24 16" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" />
+      <path d="M20 6C14 6 10 10 10 16C10 20 12 23 15 25V32H25V25C28 23 30 20 30 16C30 10 26 6 20 6Z" stroke="#2563EB" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M16 32H24M17 28H23" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
+      <path d="M16 16C16 14.5 17 13 20 13C23 13 24 14.5 24 16" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -43,11 +43,11 @@ function BrainIcon() {
 function ScaleIcon() {
   return (
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <path d="M20 6V34" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" />
-      <path d="M12 34H28" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" />
-      <path d="M10 14L20 10L30 14" stroke="#1E5FA8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M10 14L6 24H14L10 14Z" stroke="#1E5FA8" strokeWidth="2" strokeLinejoin="round" />
-      <path d="M30 14L26 24H34L30 14Z" stroke="#1E5FA8" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M20 6V34" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
+      <path d="M12 34H28" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
+      <path d="M10 14L20 10L30 14" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M10 14L6 24H14L10 14Z" stroke="#2563EB" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M30 14L26 24H34L30 14Z" stroke="#2563EB" strokeWidth="2" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -158,7 +158,7 @@ export default async function OverPage() {
   return (
     <main>
       {/* Sectie 1 — Hero */}
-      <section style={{ backgroundColor: "#F0F5FA" }}>
+      <section style={{ backgroundColor: "#F0F7FF" }}>
         <div className="mx-auto max-w-4xl px-6 py-28 text-center sm:py-36">
           <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-navy sm:text-5xl lg:text-6xl">
             Wij bouwen slimme digitale oplossingen die echt werken.
@@ -201,7 +201,7 @@ export default async function OverPage() {
       </DarkSection>
 
       {/* Sectie 3 — Ons verschil */}
-      <section style={{ backgroundColor: "#F0F5FA" }}>
+      <section style={{ backgroundColor: "#F0F7FF" }}>
         <div className="mx-auto max-w-4xl px-6 py-24">
           <h2 className="text-center font-display text-3xl font-bold text-navy sm:text-4xl">
             Gebouwd op een eigen AI-systeem
@@ -214,7 +214,7 @@ export default async function OverPage() {
             {verschilKaarten.map((kaart) => (
               <div
                 key={kaart.text}
-                className="flex flex-col items-center rounded-xl border border-[#D6E4F0] bg-white p-8 text-center"
+                className="flex flex-col items-center rounded-xl border border-[#DBEAFE] bg-white p-8 text-center"
               >
                 <kaart.Icon />
                 <p className="mt-5 font-display text-lg font-semibold text-navy">
@@ -223,7 +223,7 @@ export default async function OverPage() {
               </div>
             ))}
           </div>
-          <p className="mx-auto mt-12 max-w-2xl text-center text-base text-[#1E5FA8]">
+          <p className="mx-auto mt-12 max-w-2xl text-center text-base text-[#2563EB]">
             Dit stelt ons in staat om effici&euml;nter te werken dan
             traditionele partijen, en dat zie je terug in snelheid,
             kwaliteit en kosten.
@@ -248,7 +248,7 @@ export default async function OverPage() {
                     className="h-20 w-20 rounded-full object-cover"
                   />
                 ) : (
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#1E5FA8]">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#2563EB]">
                     <span className="font-display text-xl font-bold text-white">
                       {getInitials(member.name)}
                     </span>
@@ -257,12 +257,12 @@ export default async function OverPage() {
                 <p className="mt-4 font-display text-2xl font-semibold text-white">
                   {member.name}
                 </p>
-                <p className="mt-1 text-sm text-[#4A90D9]">Eigenaar</p>
+                <p className="mt-1 text-sm text-[#38BDF8]">Eigenaar</p>
                 <div className="mt-4 flex flex-col gap-1">
                   {member.phone && (
                     <a
                       href={`tel:${member.phone.replace(/\s/g, "")}`}
-                      className="text-sm text-[#4A90D9] transition-colors hover:text-[#6AABEF]"
+                      className="text-sm text-[#38BDF8] transition-colors hover:text-[#6AABEF]"
                     >
                       {member.phone}
                     </a>
@@ -270,7 +270,7 @@ export default async function OverPage() {
                   {member.email && (
                     <a
                       href={`mailto:${member.email}`}
-                      className="text-sm text-[#4A90D9] transition-colors hover:text-[#6AABEF]"
+                      className="text-sm text-[#38BDF8] transition-colors hover:text-[#6AABEF]"
                     >
                       {member.email}
                     </a>
@@ -283,7 +283,7 @@ export default async function OverPage() {
       </DarkSection>
 
       {/* Sectie 5 — Waar we voor staan */}
-      <section style={{ backgroundColor: "#F0F5FA" }}>
+      <section style={{ backgroundColor: "#F0F7FF" }}>
         <div className="mx-auto max-w-4xl px-6 py-24">
           <h2 className="text-center font-display text-3xl font-bold text-navy sm:text-4xl">
             Waar we voor staan
@@ -292,7 +292,7 @@ export default async function OverPage() {
             {waarden.map((w) => (
               <div
                 key={w.title}
-                className="rounded-xl border border-[#D6E4F0] bg-white p-8"
+                className="rounded-xl border border-[#DBEAFE] bg-white p-8"
               >
                 <h3 className="font-display text-lg font-semibold text-navy">
                   {w.title}
@@ -339,7 +339,7 @@ export default async function OverPage() {
       </DarkSection>
 
       {/* Sectie 8 — CTA */}
-      <section style={{ backgroundColor: "#F0F5FA" }}>
+      <section style={{ backgroundColor: "#F0F7FF" }}>
         <div className="mx-auto max-w-4xl px-6 py-24 text-center">
           <h2 className="font-display text-3xl font-bold text-navy sm:text-4xl">
             Benieuwd wat we voor jouw organisatie kunnen betekenen?
@@ -351,13 +351,13 @@ export default async function OverPage() {
           <div className="mt-10 flex items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="rounded-md bg-[#0B1829] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-navy"
+              className="rounded-md bg-[#0F172A] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-navy"
             >
               Plan een kennismaking
             </Link>
             <Link
               href="/contact"
-              className="rounded-md border border-[#D6E4F0] px-6 py-3 text-sm font-medium text-steel transition-colors hover:bg-white"
+              className="rounded-md border border-[#DBEAFE] px-6 py-3 text-sm font-medium text-steel transition-colors hover:bg-white"
             >
               Neem contact op
             </Link>

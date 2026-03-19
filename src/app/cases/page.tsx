@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 function ScreenshotIcon() {
   return (
     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <rect x="6" y="10" width="36" height="28" rx="3" stroke="#1E5FA8" strokeWidth="2" />
-      <path d="M6 18H42" stroke="#1E5FA8" strokeWidth="2" />
-      <circle cx="12" cy="14" r="1.5" fill="#1E5FA8" />
-      <circle cx="17" cy="14" r="1.5" fill="#1E5FA8" />
+      <rect x="6" y="10" width="36" height="28" rx="3" stroke="#2563EB" strokeWidth="2" />
+      <path d="M6 18H42" stroke="#2563EB" strokeWidth="2" />
+      <circle cx="12" cy="14" r="1.5" fill="#2563EB" />
+      <circle cx="17" cy="14" r="1.5" fill="#2563EB" />
     </svg>
   );
 }
@@ -26,7 +26,7 @@ function ScreenshotIcon() {
 function CheckIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="shrink-0 mt-0.5">
-      <path d="M4 11L7 14L16 5" stroke="#4A90D9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M4 11L7 14L16 5" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -43,9 +43,9 @@ export default async function CasesPage() {
   return (
     <main>
       {/* Sectie 1 — Header */}
-      <section style={{ backgroundColor: "#F0F5FA" }}>
+      <section style={{ backgroundColor: "#F0F7FF" }}>
         <div className="mx-auto max-w-4xl px-6 py-28 text-center sm:py-36">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#1E5FA8]">
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB]">
             CASES
           </p>
           <h1 className="mt-4 font-display text-4xl font-bold leading-tight tracking-tight text-navy sm:text-5xl lg:text-6xl">
@@ -63,9 +63,9 @@ export default async function CasesPage() {
 
       {/* Sectie 3 — Grid met overige cases */}
       {otherCases.length > 0 && (
-        <section style={{ backgroundColor: "#F0F5FA" }}>
+        <section style={{ backgroundColor: "#F0F7FF" }}>
           <div className="mx-auto max-w-4xl px-6 py-24">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#1E5FA8]">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB]">
               MEER CASES
             </p>
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -89,7 +89,7 @@ function FeaturedSection({ c }: { c: Case }) {
   return (
     <DarkSection>
       <div className="mx-auto max-w-5xl px-6 py-24">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[#4A90D9]">
+        <p className="text-xs font-semibold uppercase tracking-widest text-[#38BDF8]">
           UITGELICHTE CASE
         </p>
         <div className="mt-10 flex flex-col gap-10 lg:flex-row">
@@ -113,7 +113,7 @@ function FeaturedSection({ c }: { c: Case }) {
           {/* Rechts — content */}
           <div className="flex flex-col justify-between lg:flex-1">
             {c.category && (
-              <span className="mb-3 inline-block w-fit rounded-md bg-[#1A2E45] px-3 py-1 text-xs font-medium text-[#4A90D9]">
+              <span className="mb-3 inline-block w-fit rounded-md bg-[#1A2E45] px-3 py-1 text-xs font-medium text-[#38BDF8]">
                 {c.category}
               </span>
             )}
@@ -123,8 +123,8 @@ function FeaturedSection({ c }: { c: Case }) {
             <p className="mt-3 line-clamp-2 text-[#8B9AB0]">{c.description}</p>
 
             {c.client_quote && (
-              <div className="mt-5 rounded-lg border-l-[3px] border-[#4A90D9] bg-[#1A2E45] px-5 py-4">
-                <p className="italic text-[#4A90D9]">
+              <div className="mt-5 rounded-lg border-l-[3px] border-[#38BDF8] bg-[#1A2E45] px-5 py-4">
+                <p className="italic text-[#38BDF8]">
                   &ldquo;{c.client_quote}&rdquo;
                 </p>
                 {c.client_quote_author && (
@@ -163,7 +163,7 @@ function FeaturedSection({ c }: { c: Case }) {
             <div className="mt-6">
               <Link
                 href={`/cases/${c.slug}`}
-                className="inline-block rounded-md bg-[#4A90D9] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#3A7BC8]"
+                className="inline-block rounded-md bg-[#38BDF8] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#3A7BC8]"
               >
                 Bekijk case &rarr;
               </Link>
@@ -181,7 +181,7 @@ function CaseCard({ c }: { c: Case }) {
   return (
     <Link
       href={`/cases/${c.slug}`}
-      className="group flex flex-col overflow-hidden rounded-xl border border-[#D6E4F0] bg-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
+      className="group flex flex-col overflow-hidden rounded-xl border border-[#DBEAFE] bg-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
     >
       {/* Afbeelding */}
       <div className="relative h-[140px] w-full overflow-hidden bg-[#E8EFF6]">
@@ -198,7 +198,7 @@ function CaseCard({ c }: { c: Case }) {
           </div>
         )}
         {c.category && (
-          <span className="absolute left-3 top-3 rounded-md bg-[#1A2E45]/90 px-2.5 py-1 text-[11px] font-medium text-[#4A90D9]">
+          <span className="absolute left-3 top-3 rounded-md bg-[#1A2E45]/90 px-2.5 py-1 text-[11px] font-medium text-[#38BDF8]">
             {c.category}
           </span>
         )}
@@ -206,7 +206,7 @@ function CaseCard({ c }: { c: Case }) {
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-4">
-        <h3 className="font-display text-base font-semibold text-[#0B1829] group-hover:text-[#1E5FA8]">
+        <h3 className="font-display text-base font-semibold text-[#0F172A] group-hover:text-[#2563EB]">
           {c.title}
         </h3>
         <p className="mt-2 line-clamp-2 text-sm text-[#8B9AB0]">
@@ -216,7 +216,7 @@ function CaseCard({ c }: { c: Case }) {
           {c.duration && (
             <span className="text-xs text-[#8B9AB0]">{c.duration}</span>
           )}
-          <span className="text-sm font-medium text-[#1E5FA8]">
+          <span className="text-sm font-medium text-[#2563EB]">
             Lees meer &rarr;
           </span>
         </div>
@@ -241,7 +241,7 @@ export function CTABar() {
         </div>
         <Link
           href="/contact"
-          className="shrink-0 rounded-md bg-[#4A90D9] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#3A7BC8]"
+          className="shrink-0 rounded-md bg-[#38BDF8] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#3A7BC8]"
         >
           Plan een kennismaking
         </Link>
