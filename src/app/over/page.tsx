@@ -7,16 +7,16 @@ import { createServerSupabaseClient } from "@/lib/supabase-server";
 /* ── SEO Metadata ── */
 
 export const metadata: Metadata = {
-  title: "Over Lean AI Studio — Kevin van Oosteren & Frank Verbrugge",
+  title: "Over Lean AI Studio — Frank Verbrugge & Kevin van Oosteren",
   description:
-    "Leer het team achter Lean AI Studio kennen. Kevin van Oosteren en Frank Verbrugge combineren 10+ jaar digitale media-ervaring bij Reshift met AI-gedreven ontwikkeling. Sneller bouwen, slimmer werken.",
+    "Leer het team achter Lean AI Studio kennen. Frank Verbrugge en Kevin van Oosteren combineren 10+ jaar digitale media-ervaring bij Reshift met AI-gedreven ontwikkeling. Sneller bouwen, slimmer werken.",
   alternates: {
     canonical: "https://www.leanaistudio.nl/over",
   },
   openGraph: {
     title: "Over Lean AI Studio — Het team",
     description:
-      "Kevin van Oosteren en Frank Verbrugge: 10+ jaar digitale media bij Reshift, nu AI-gedreven development voor Nederlandse bedrijven.",
+      "Frank Verbrugge en Kevin van Oosteren: 10+ jaar digitale media bij Reshift, nu AI-gedreven development voor Nederlandse bedrijven.",
     url: "https://www.leanaistudio.nl/over",
     siteName: "Lean AI Studio",
     locale: "nl_NL",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Over Lean AI Studio",
     description:
-      "Kevin van Oosteren en Frank Verbrugge: AI-gedreven development met 10+ jaar digitale media-ervaring.",
+      "Frank Verbrugge en Kevin van Oosteren: AI-gedreven development met 10+ jaar digitale media-ervaring.",
   },
   robots: {
     index: true,
@@ -55,22 +55,22 @@ const jsonLd = {
         "Lean AI Studio ontwerpt en bouwt websites, applicaties en bedrijfssystemen met een eigen AI-systeem. Sneller, effici\u00ebnter en direct klaar voor groei.",
       foundingDate: "2025",
       founders: [
-        { "@id": "https://www.leanaistudio.nl/#kevin-van-oosteren" },
         { "@id": "https://www.leanaistudio.nl/#frank-verbrugge" },
+        { "@id": "https://www.leanaistudio.nl/#kevin-van-oosteren" },
       ],
       address: { "@type": "PostalAddress", addressCountry: "NL" },
       contactPoint: [
         {
           "@type": "ContactPoint",
           contactType: "sales",
-          email: "kevin@leanaistudio.nl",
-          telephone: "+31629566643",
+          email: "frank@leanaistudio.nl",
+          telephone: "+31657999556",
         },
         {
           "@type": "ContactPoint",
           contactType: "sales",
-          email: "frank@leanaistudio.nl",
-          telephone: "+31657999556",
+          email: "kevin@leanaistudio.nl",
+          telephone: "+31629566643",
         },
       ],
       sameAs: ["https://www.linkedin.com/company/lean-ai-studio"],
@@ -86,6 +86,39 @@ const jsonLd = {
       ],
       numberOfEmployees: { "@type": "QuantitativeValue", value: 2 },
       areaServed: { "@type": "Country", name: "Nederland" },
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.leanaistudio.nl/#frank-verbrugge",
+      name: "Frank Verbrugge",
+      jobTitle: "Eigenaar & Lead Developer",
+      description:
+        "Manager Review.nl bij Reshift Digital met bredere verantwoordelijkheden binnen het bedrijf. 10+ jaar ervaring in de Nederlandse digitale media-industrie. Hands-on developer met expertise in Next.js, Supabase en AI-gedreven development workflows.",
+      url: "https://www.leanaistudio.nl/over",
+      image:
+        "https://rcovsiiqljrktfumpdzd.supabase.co/storage/v1/object/public/media/FV.jpg",
+      email: "frank@leanaistudio.nl",
+      telephone: "+31657999556",
+      sameAs: ["https://www.linkedin.com/in/fverbrugge/"],
+      worksFor: [
+        { "@id": "https://www.leanaistudio.nl/#organization" },
+        {
+          "@type": "Organization",
+          name: "Reshift Digital",
+          url: "https://www.reshift.nl",
+          description:
+            "Het grootste tech-gespecialiseerde mediahuis van Nederland",
+        },
+      ],
+      knowsAbout: [
+        "Full-stack webontwikkeling",
+        "Next.js & React",
+        "Supabase & databases",
+        "AI-assisted development",
+        "Content management systemen",
+        "DevOps & Vercel deployment",
+      ],
+      nationality: { "@type": "Country", name: "Nederland" },
     },
     {
       "@type": "Person",
@@ -130,45 +163,12 @@ const jsonLd = {
       nationality: { "@type": "Country", name: "Nederland" },
     },
     {
-      "@type": "Person",
-      "@id": "https://www.leanaistudio.nl/#frank-verbrugge",
-      name: "Frank Verbrugge",
-      jobTitle: "Eigenaar & Lead Developer",
-      description:
-        "Manager Review.nl bij Reshift Digital met bredere verantwoordelijkheden binnen het bedrijf. 10+ jaar ervaring in de Nederlandse digitale media-industrie. Hands-on developer met expertise in Next.js, Supabase en AI-gedreven development workflows.",
-      url: "https://www.leanaistudio.nl/over",
-      image:
-        "https://rcovsiiqljrktfumpdzd.supabase.co/storage/v1/object/public/media/FV.jpg",
-      email: "frank@leanaistudio.nl",
-      telephone: "+31657999556",
-      sameAs: ["https://www.linkedin.com/in/fverbrugge/"],
-      worksFor: [
-        { "@id": "https://www.leanaistudio.nl/#organization" },
-        {
-          "@type": "Organization",
-          name: "Reshift Digital",
-          url: "https://www.reshift.nl",
-          description:
-            "Het grootste tech-gespecialiseerde mediahuis van Nederland",
-        },
-      ],
-      knowsAbout: [
-        "Full-stack webontwikkeling",
-        "Next.js & React",
-        "Supabase & databases",
-        "AI-assisted development",
-        "Content management systemen",
-        "DevOps & Vercel deployment",
-      ],
-      nationality: { "@type": "Country", name: "Nederland" },
-    },
-    {
       "@type": "WebPage",
       "@id": "https://www.leanaistudio.nl/over#webpage",
       url: "https://www.leanaistudio.nl/over",
-      name: "Over Lean AI Studio — Kevin van Oosteren & Frank Verbrugge",
+      name: "Over Lean AI Studio — Frank Verbrugge & Kevin van Oosteren",
       description:
-        "Leer het team achter Lean AI Studio kennen. Kevin van Oosteren en Frank Verbrugge combineren 10+ jaar digitale media-ervaring bij Reshift met AI-gedreven ontwikkeling.",
+        "Leer het team achter Lean AI Studio kennen. Frank Verbrugge en Kevin van Oosteren combineren 10+ jaar digitale media-ervaring bij Reshift met AI-gedreven ontwikkeling.",
       isPartOf: { "@id": "https://www.leanaistudio.nl/#website" },
       about: { "@id": "https://www.leanaistudio.nl/#organization" },
       mainEntity: { "@id": "https://www.leanaistudio.nl/#organization" },
@@ -206,7 +206,7 @@ const jsonLd = {
           name: "Wie zitten er achter Lean AI Studio?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Lean AI Studio is opgericht door Kevin van Oosteren en Frank Verbrugge. Beiden werken daarnaast bij Reshift Digital, het grootste tech-gespecialiseerde mediahuis van Nederland, verantwoordelijk voor Kieskeurig.nl, Review.nl en ID.nl. Kevin is Managing Director bij Reshift Performance en lid van de Raad van Toezicht van GS1 Nederland. Frank is Manager Review.nl en hands-on lead developer.",
+            text: "Lean AI Studio is opgericht door Frank Verbrugge en Kevin van Oosteren. Beiden werken daarnaast bij Reshift Digital, het grootste tech-gespecialiseerde mediahuis van Nederland, verantwoordelijk voor Kieskeurig.nl, Review.nl en ID.nl. Frank is Manager Review.nl en hands-on lead developer. Kevin is Managing Director bij Reshift Performance en lid van de Raad van Toezicht van GS1 Nederland.",
           },
         },
         {
@@ -299,22 +299,6 @@ interface Founder {
 
 const founders: Founder[] = [
   {
-    name: "Kevin van Oosteren",
-    role: "Eigenaar & AI Solutions Architect",
-    photo: kevinPhoto,
-    bio: "Managing Director bij Reshift Performance, waar hij eindverantwoordelijk is voor Kieskeurig.nl, ID.nl en Review.nl \u2014 samen goed voor miljoenen maandelijkse bezoekers. Daarnaast verantwoordelijk voor Business Development bij Oncore.ai en lid van de Raad van Toezicht van GS1 Nederland. Kevin combineert strategisch denken met hands-on kennis van SEO, programmatic advertising en data-gedreven optimalisatie.",
-    tags: [
-      "AI Solutions",
-      "SEO",
-      "Digital Strategy",
-      "Data & Analytics",
-      "Business Development",
-    ],
-    linkedin: "https://www.linkedin.com/in/kevinvanoosteren/",
-    email: "kevin@leanaistudio.nl",
-    phone: "+31 6 29566643",
-  },
-  {
     name: "Frank Verbrugge",
     role: "Eigenaar & Lead Developer",
     photo: frankPhoto,
@@ -329,6 +313,22 @@ const founders: Founder[] = [
     linkedin: "https://www.linkedin.com/in/fverbrugge/",
     email: "frank@leanaistudio.nl",
     phone: "+31 6 57999556",
+  },
+  {
+    name: "Kevin van Oosteren",
+    role: "Eigenaar & AI Solutions Architect",
+    photo: kevinPhoto,
+    bio: "Managing Director bij Reshift Performance, waar hij eindverantwoordelijk is voor Kieskeurig.nl, ID.nl en Review.nl \u2014 samen goed voor miljoenen maandelijkse bezoekers. Daarnaast verantwoordelijk voor Business Development bij Oncore.ai en lid van de Raad van Toezicht van GS1 Nederland. Kevin combineert strategisch denken met hands-on kennis van SEO, programmatic advertising en data-gedreven optimalisatie.",
+    tags: [
+      "AI Solutions",
+      "SEO",
+      "Digital Strategy",
+      "Data & Analytics",
+      "Business Development",
+    ],
+    linkedin: "https://www.linkedin.com/in/kevinvanoosteren/",
+    email: "kevin@leanaistudio.nl",
+    phone: "+31 6 29566643",
   },
 ];
 
@@ -361,7 +361,7 @@ const pijlers = [
 const faqs = [
   {
     q: "Wie zitten er achter Lean AI Studio?",
-    a: "Lean AI Studio is opgericht door Kevin van Oosteren en Frank Verbrugge. Beiden werken daarnaast bij Reshift Digital, het grootste tech-gespecialiseerde mediahuis van Nederland, verantwoordelijk voor Kieskeurig.nl, Review.nl en ID.nl. Kevin is Managing Director bij Reshift Performance en lid van de Raad van Toezicht van GS1 Nederland. Frank is Manager Review.nl en hands-on lead developer.",
+    a: "Lean AI Studio is opgericht door Frank Verbrugge en Kevin van Oosteren. Beiden werken daarnaast bij Reshift Digital, het grootste tech-gespecialiseerde mediahuis van Nederland, verantwoordelijk voor Kieskeurig.nl, Review.nl en ID.nl. Frank is Manager Review.nl en hands-on lead developer. Kevin is Managing Director bij Reshift Performance en lid van de Raad van Toezicht van GS1 Nederland.",
   },
   {
     q: "Wat maakt Lean AI Studio anders dan een traditioneel webbureau?",
@@ -429,8 +429,8 @@ export default async function OverPage() {
             Wij bouwen slimme digitale oplossingen die &eacute;cht werken.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted">
-            Lean AI Studio is opgericht door Kevin van Oosteren en Frank
-            Verbrugge &mdash; twee ondernemers die 10+ jaar ervaring in
+            Lean AI Studio is opgericht door Frank Verbrugge en Kevin van
+            Oosteren &mdash; twee ondernemers die 10+ jaar ervaring in
             digitale media combineren met AI-gedreven ontwikkeling.
           </p>
         </div>
