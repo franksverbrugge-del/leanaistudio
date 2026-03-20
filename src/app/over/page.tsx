@@ -318,7 +318,7 @@ const founders: Founder[] = [
     name: "Kevin van Oosteren",
     role: "Eigenaar & AI Solutions Architect",
     photo: kevinPhoto,
-    bio: "Managing Director bij Reshift Performance, waar hij eindverantwoordelijk is voor Kieskeurig.nl, ID.nl en Review.nl \u2014 samen goed voor miljoenen maandelijkse bezoekers. Daarnaast verantwoordelijk voor Business Development bij Oncore.ai en lid van de Raad van Toezicht van GS1 Nederland. Kevin combineert strategisch denken met hands-on kennis van SEO, programmatic advertising en data-gedreven optimalisatie.",
+    bio: "Managing Director bij Reshift Performance, waar hij eindverantwoordelijk is voor Kieskeurig.nl, ID.nl en Review.nl, samen goed voor miljoenen maandelijkse bezoekers. Daarnaast verantwoordelijk voor Business Development bij Oncore.ai en lid van de Raad van Toezicht van GS1 Nederland. Kevin combineert strategisch denken met hands-on kennis van SEO, programmatic advertising en data-gedreven optimalisatie.",
     tags: [
       "AI Solutions",
       "SEO",
@@ -430,8 +430,8 @@ export default async function OverPage() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted">
             Lean AI Studio is opgericht door Frank Verbrugge en Kevin van
-            Oosteren &mdash; twee ondernemers die 10+ jaar ervaring in
-            digitale media combineren met AI-gedreven ontwikkeling.
+            Oosteren, twee ondernemers die 10+ jaar ervaring in digitale
+            media combineren met AI-gedreven ontwikkeling.
           </p>
         </div>
       </section>
@@ -576,13 +576,9 @@ export default async function OverPage() {
           </h2>
           <div className="mx-auto mt-10 max-w-2xl space-y-6 text-center leading-relaxed text-white/80">
             <p>
-              Naast Lean AI Studio werken Kevin en Frank bij{" "}
-              <strong className="text-white">Reshift Digital</strong> &mdash;
+              Naast Lean AI Studio werken Kevin en Frank bij Reshift Digital,
               het grootste tech-gespecialiseerde mediahuis van Nederland,
-              verantwoordelijk voor{" "}
-              <strong className="text-white">Kieskeurig.nl</strong>,{" "}
-              <strong className="text-white">Review.nl</strong> en{" "}
-              <strong className="text-white">ID.nl</strong>.
+              verantwoordelijk voor Kieskeurig.nl, Review.nl en ID.nl.
             </p>
             <p>
               Kevin is daarnaast lid van de{" "}
