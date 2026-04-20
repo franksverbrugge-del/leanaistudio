@@ -107,7 +107,7 @@ export default function NewTeamMemberPage() {
           label="E-mail"
           value={form.email}
           onChange={(v) => updateField("email", v)}
-          placeholder="naam@leanaistudios.nl"
+          placeholder="naam@leanaistudio.nl"
         />
         <TextArea
           label="Bio"

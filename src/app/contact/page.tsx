@@ -41,14 +41,14 @@ const fallbackTeam: FallbackTeamMember[] = [
     id: "frank",
     name: "Frank Verbrugge",
     phone: "+31 6 57999556",
-    email: "frank@leanaistudios.nl",
+    email: "frank@leanaistudio.nl",
     photo_url: null,
   },
   {
     id: "kevin",
     name: "Kevin van Oosteren",
     phone: "+31 6 29566643",
-    email: "kevin@leanaistudios.nl",
+    email: "kevin@leanaistudio.nl",
     photo_url: null,
   },
 ];
@@ -147,7 +147,7 @@ export default async function ContactPage() {
           </div>
           <div className="mt-10 flex justify-center">
             <a
-              href="mailto:frank@leanaistudios.nl"
+              href="mailto:frank@leanaistudio.nl"
               className="rounded-md bg-[#38BDF8] px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-[#3A7BC8]"
             >
               Plan een kennismaking
