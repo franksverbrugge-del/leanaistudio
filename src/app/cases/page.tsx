@@ -30,7 +30,7 @@ export default function CasesPage() {
               href={`/cases/${c.slug}`}
               className="group grid overflow-hidden rounded-2xl border border-line bg-surface transition-shadow hover:shadow-xl hover:shadow-ink/5 lg:grid-cols-[1.2fr_1fr]"
             >
-              <div className="border-b border-line bg-paper p-6 lg:border-b-0 lg:border-r">
+              <div className="flex items-center border-b border-line bg-paper p-6 lg:border-b-0 lg:border-r">
                 <BrowserFrame
                   url={c.url ? c.url.replace("https://", "") : c.client}
                   src={c.image.src}

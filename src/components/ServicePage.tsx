@@ -71,7 +71,7 @@ export default function ServicePage({ c }: { c: ServiceContent }) {
         <Container className="grid items-center gap-12 py-14 sm:py-20 lg:grid-cols-[1.1fr_1fr]">
           <div>
             <Eyebrow>{c.eyebrow}</Eyebrow>
-            <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.08] text-ink sm:text-5xl">
+            <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.08] text-ink sm:text-[2.75rem]">
               {c.title}
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-muted">{c.intro}</p>

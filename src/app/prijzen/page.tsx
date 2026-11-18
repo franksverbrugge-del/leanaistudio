@@ -111,7 +111,7 @@ export default function PrijzenPage() {
                   href={p.href}
                   className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-dark"
                 >
-                  Meer over {p.name.toLowerCase()} <Arrow />
+                  Meer informatie <Arrow />
                 </Link>
               </div>
             ))}

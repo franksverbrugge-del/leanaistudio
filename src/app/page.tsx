@@ -76,10 +76,10 @@ export default function HomePage() {
     <main>
       {/* Hero */}
       <section className="overflow-hidden border-b border-line">
-        <Container className="grid items-center gap-14 pb-20 pt-14 sm:pt-20 lg:grid-cols-[1.05fr_1fr] lg:pb-28">
+        <Container className="grid items-center gap-14 pb-20 pt-14 sm:pt-20 lg:grid-cols-[1fr_1.1fr] lg:pb-28">
           <div>
             <Eyebrow>Websites en automatisering voor het MKB</Eyebrow>
-            <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.02] text-ink sm:text-6xl lg:text-7xl">
+            <h1 className="mt-5 font-display text-[2.75rem] font-semibold leading-[1.04] text-ink sm:text-6xl xl:text-[4.25rem]">
               Meer aanvragen.
               <br />
               <span className="text-accent">Minder handwerk.</span>
@@ -234,7 +234,7 @@ export default function HomePage() {
             href="/cases/wijntripje"
             className="group mt-12 grid overflow-hidden rounded-2xl border border-line bg-surface transition-shadow hover:shadow-xl hover:shadow-ink/5 lg:grid-cols-[1.2fr_1fr]"
           >
-            <div className="border-b border-line bg-paper p-6 lg:border-b-0 lg:border-r">
+            <div className="flex items-center border-b border-line bg-paper p-6 lg:border-b-0 lg:border-r">
               <BrowserFrame
                 url="wijntripje.nl"
                 src="/werk/wijntripje.jpg"
