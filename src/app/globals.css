@@ -1,45 +1,125 @@
 @import "tailwindcss";
 
+/*
+  Lean AI Studio, designsysteem "Het werk als bewijs".
+  Warm gebroken wit als ondergrond, navy als inkt, één blauw accent.
+  Alle tekstkleuren halen minimaal WCAG AA (4,5:1) op hun ondergrond.
+*/
 :root {
-  --color-navy: #0F172A;
-  --color-steel: #2563EB;
-  --color-electric: #38BDF8;
-  --color-softwhite: #F0F7FF;
-  --color-border: #DBEAFE;
-  --color-muted: #8B9AB0;
+  --color-paper: #f7f5f0;
+  --color-surface: #ffffff;
+  --color-ink: #0f172a;
+  --color-ink-soft: #334155;
+  --color-muted: #55606e;
+  --color-line: #e3dfd5;
+  --color-line-strong: #cfc9bb;
+  --color-accent: #2563eb;
+  --color-accent-dark: #1d4ed8;
+  --color-accent-soft: #e8eefc;
+  --color-night: #0f172a;
+  --color-night-soft: #1e293b;
+  --color-good: #15803d;
 
-  --color-primary: var(--color-navy);
-  --color-accent: var(--color-steel);
-  --color-accent-hover: var(--color-electric);
-  --color-bg: var(--color-softwhite);
-  --color-text: var(--color-navy);
+  /* Oude namen, nog gebruikt door het beheerpaneel */
+  --color-navy: var(--color-ink);
+  --color-steel: var(--color-accent);
+  --color-electric: #38bdf8;
+  --color-softwhite: var(--color-paper);
+  --color-border: var(--color-line);
+  --color-primary: var(--color-ink);
+  --color-accent-hover: var(--color-accent-dark);
+  --color-bg: var(--color-paper);
+  --color-text: var(--color-ink);
   --color-text-muted: var(--color-muted);
 }
 
 @theme inline {
+  --color-paper: var(--color-paper);
+  --color-surface: var(--color-surface);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+  --color-line-strong: var(--color-line-strong);
+  --color-accent: var(--color-accent);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-night: var(--color-night);
+  --color-night-soft: var(--color-night-soft);
+  --color-good: var(--color-good);
+
   --color-navy: var(--color-navy);
   --color-steel: var(--color-steel);
   --color-electric: var(--color-electric);
   --color-softwhite: var(--color-softwhite);
+  --color-border: var(--color-border);
   --color-primary: var(--color-primary);
-  --color-accent: var(--color-accent);
   --color-accent-hover: var(--color-accent-hover);
   --color-bg: var(--color-bg);
   --color-text: var(--color-text);
   --color-text-muted: var(--color-text-muted);
-  --color-border: var(--color-border);
-  --color-background: var(--color-bg);
-  --color-foreground: var(--color-text);
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+
   --font-sans: var(--font-inter);
-  --font-display: var(--font-playfair);
+  --font-display: var(--font-inter-tight);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-inter), system-ui, sans-serif;
-  background: var(--color-softwhite);
-  color: var(--color-navy);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3 {
-  font-family: var(--font-playfair), Georgia, serif;
+h1,
+h2,
+h3 {
+  font-family: var(--font-inter-tight), var(--font-inter), system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Leesbare lange tekst (kennisbank, juridisch) */
+.prose-las p,
+.prose-las li {
+  line-height: 1.75;
+  color: var(--color-ink-soft);
+}
+.prose-las h2 {
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+  font-weight: 650;
+  color: var(--color-ink);
+}
+.prose-las h3 {
+  margin-top: 1.75rem;
+  font-size: 1.15rem;
+  font-weight: 650;
+  color: var(--color-ink);
 }

@@ -1,359 +1,384 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import DarkSection from "@/components/DarkSection";
-import { createServerSupabaseClient } from "@/lib/supabase-server";
+import { CtaBlock, Faq, LinkCard } from "@/components/blocks";
+import { BrowserFrame, Flow, StatCard } from "@/components/visuals";
+import {
+  Arrow,
+  ButtonLink,
+  CheckList,
+  Container,
+  Eyebrow,
+  SectionIntro,
+} from "@/components/ui";
+import { euro, guarantees, prices } from "@/content/site";
+import { mediaExamples } from "@/content/projecten";
 
 export const metadata: Metadata = {
-  title: "Lean AI Studio — AI-oplossingen voor bedrijven",
+  title: {
+    absolute: "Lean AI Studio | Websites en automatisering voor het MKB",
+  },
   description:
-    "Lean AI Studio helpt Nederlandse bedrijven met het implementeren van slimme AI-oplossingen. Van strategie tot implementatie.",
+    "Websites die aanvragen opleveren en automatiseringen die handwerk wegnemen, voor bedrijven van 5 tot 50 mensen. Vaste prijs, eerst zien en dan beslissen.",
+  alternates: { canonical: "/" },
 };
 
-function WebsiteIcon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <rect x="4" y="6" width="24" height="20" rx="2" stroke="#2563EB" strokeWidth="2" />
-      <path d="M4 12H28" stroke="#2563EB" strokeWidth="2" />
-      <circle cx="8" cy="9" r="1" fill="#2563EB" />
-      <circle cx="12" cy="9" r="1" fill="#2563EB" />
-    </svg>
-  );
-}
-
-function AIIcon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <circle cx="16" cy="16" r="12" stroke="#2563EB" strokeWidth="2" />
-      <circle cx="16" cy="16" r="4" fill="#2563EB" />
-      <path d="M16 4V8M16 24V28M4 16H8M24 16H28" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function SystemIcon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <rect x="4" y="8" width="24" height="16" rx="2" stroke="#2563EB" strokeWidth="2" />
-      <path d="M12 14L15 17L20 12" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function CheckIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M5 13L9 17L19 7" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function CalendarIcon() {
-  return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <rect x="6" y="10" width="28" height="24" rx="3" stroke="#2563EB" strokeWidth="2" />
-      <path d="M6 18H34" stroke="#2563EB" strokeWidth="2" />
-      <path d="M14 6V12M26 6V12" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
-      <rect x="12" y="23" width="4" height="4" rx="1" fill="#2563EB" />
-      <rect x="18" y="23" width="4" height="4" rx="1" fill="#2563EB" />
-      <rect x="24" y="23" width="4" height="4" rx="1" fill="#2563EB" />
-    </svg>
-  );
-}
-
-function SearchIcon() {
-  return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <circle cx="18" cy="18" r="10" stroke="#2563EB" strokeWidth="2" />
-      <path d="M25 25L34 34" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function GearIcon() {
-  return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <circle cx="20" cy="20" r="6" stroke="#2563EB" strokeWidth="2" />
-      <path d="M20 4V8M20 32V36M4 20H8M32 20H36M8.8 8.8L11.6 11.6M28.4 28.4L31.2 31.2M31.2 8.8L28.4 11.6M11.6 28.4L8.8 31.2" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function ArrowIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="text-[#2563EB]">
-      <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-interface TeamMember {
-  id: string;
-  name: string;
-  phone: string | null;
-  email: string | null;
-  photo_url: string | null;
-}
-
-const fallbackTeam: TeamMember[] = [
+const steps = [
   {
-    id: "frank",
-    name: "Frank Verbrugge",
-    phone: "+31 6 57999556",
-    email: "frank@leanaistudio.nl",
-    photo_url: null,
+    title: "Gesprek",
+    text: "30 minuten, gratis. Wat wil je bereiken en waar verlies je tijd of klanten?",
   },
   {
-    id: "kevin",
-    name: "Kevin van Oosteren",
-    phone: "+31 6 29566643",
-    email: "kevin@leanaistudio.nl",
-    photo_url: null,
+    title: "Ontwerp of plan",
+    text: "Gratis en vrijblijvend. Een klikbaar ontwerp of een stroomschema, met vaste prijs.",
+  },
+  {
+    title: "Bouwen",
+    text: "Vaste prijs en planning. Je kijkt mee via een werkende tussenversie.",
+  },
+  {
+    title: "Live en beheer",
+    text: "Oplevering met kwaliteitsrapport. Daarna bouwen we verder als je wilt.",
   },
 ];
 
-function getInitials(name: string): string {
-  return name
-    .split(" ")
-    .filter((p) => p[0] === p[0].toUpperCase())
-    .map((p) => p[0])
-    .join("")
-    .slice(0, 2);
-}
+const priceCards = [
+  { label: "Website", value: euro(prices.website), href: "/website-laten-maken" },
+  { label: "Webapplicatie", value: euro(prices.webapp), href: "/webapplicatie-laten-maken" },
+  { label: "Eerste automatisering", value: euro(prices.automation), href: "/ai-automatisering" },
+  { label: "Beheer", value: `${euro(prices.care)} p/m`, href: "/beheer-en-onderhoud" },
+];
 
-const diensten = [
+const faq = [
   {
-    Icon: WebsiteIcon,
-    title: "Websites & platforms",
-    description:
-      "We kijken waar je tijd verliest en bouwen oplossingen die dat automatiseren.",
+    q: "Voor wie werken jullie?",
+    a: "Voor MKB-bedrijven met ongeveer 5 tot 50 mensen die meer uit hun website willen halen of minder tijd kwijt willen zijn aan terugkerend werk. Je hoeft geen technische kennis te hebben.",
   },
   {
-    Icon: AIIcon,
-    title: "AI-oplossingen",
-    description:
-      "We automatiseren processen en ontwikkelen slimme toepassingen die werk uit handen nemen.",
+    q: "Wat betekent “gebouwd met AI”?",
+    a: "AI doet bij ons het voorwerk: eerste versies van code, teksten en ontwerpen. Wij bepalen de aanpak, controleren alles en testen voordat iets live gaat. Daardoor zijn we sneller en betaalbaarder, zonder in te leveren op kwaliteit.",
   },
   {
-    Icon: SystemIcon,
-    title: "Bedrijfssystemen",
-    description:
-      "Van interne tools tot complete workflows: wij bouwen systemen die jouw organisatie efficiënter maken.",
+    q: "Wat kost het?",
+    a: "Een website begint vanaf €2.500, een webapplicatie vanaf €7.500, een eerste automatisering vanaf €1.500 en beheer vanaf €49 per maand. Alles excl. btw. Na het eerste gesprek krijg je een vaste prijs per fase.",
+  },
+  {
+    q: "Zit ik daarna aan jullie vast?",
+    a: "Nee. Domein, code, accounts en data staan op jouw naam. Beheer is maandelijks opzegbaar.",
+  },
+  {
+    q: "Jullie werken ook bij Reshift. Hebben jullie wel tijd?",
+    a: "Ja, daar is ruimte voor. We doen elk project zelf, dus je praat altijd direct met Frank of Kevin.",
   },
 ];
 
-const stats = [
-  { value: "20+", label: "Projecten" },
-  { value: "3 weken", label: "Gemiddelde implementatie" },
-  { value: "100%", label: "Nederlandse bedrijven" },
-];
-
-const reasons = [
-  "Tot 5\u201310x sneller live",
-  "Gebouwd met ons eigen AI-systeem",
-  "Makkelijk door te ontwikkelen",
-  "Effici\u00ebnter dan traditionele development",
-];
-
-const samenwerkingBlokken = [
-  {
-    Icon: CalendarIcon,
-    title: "Plan een kennismaking",
-    href: "/contact",
-  },
-  {
-    Icon: SearchIcon,
-    title: "Ontdek wat er mogelijk is",
-    href: "/cases",
-  },
-  {
-    Icon: GearIcon,
-    title: "Laat je processen analyseren",
-    href: "/contact",
-  },
-];
-
-export default async function HomePage() {
-  let team: TeamMember[] = fallbackTeam;
-
-  try {
-    const supabase = await createServerSupabaseClient();
-    const { data } = await supabase
-      .from("team")
-      .select("id, name, phone, email, photo_url")
-      .order("order_index");
-    if (data && data.length > 0) {
-      team = data;
-    }
-  } catch {
-    // Supabase not available, use fallback
-  }
-
+export default function HomePage() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-softwhite">
-        <div className="mx-auto max-w-6xl px-6 py-36 text-center sm:py-44">
-          <h1 className="font-display text-5xl font-bold leading-tight tracking-tight text-navy sm:text-6xl lg:text-7xl">
-            Sneller bouwen met AI.
-            <br />
-            Minder gedoe. Meer resultaat.
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted">
-            Wij ontwerpen en bouwen websites, applicaties en bedrijfssystemen met
-            ons eigen AI-systeem. Sneller, effici&euml;nter en direct klaar voor
-            groei.
-          </p>
-          <div className="mt-10 flex items-center justify-center gap-4">
-            <Link
-              href="/cases"
-              className="rounded-md bg-navy px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-steel"
-            >
-              Bekijk onze cases
-            </Link>
-            <Link
-              href="/contact"
-              className="rounded-md border border-border px-6 py-3 text-sm font-medium text-steel transition-colors hover:bg-softwhite"
-            >
-              Neem contact op
-            </Link>
+      <section className="overflow-hidden border-b border-line">
+        <Container className="grid items-center gap-14 pb-20 pt-14 sm:pt-20 lg:grid-cols-[1.05fr_1fr] lg:pb-28">
+          <div>
+            <Eyebrow>Websites en automatisering voor het MKB</Eyebrow>
+            <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.02] text-ink sm:text-6xl lg:text-7xl">
+              Meer aanvragen.
+              <br />
+              <span className="text-accent">Minder handwerk.</span>
+            </h1>
+            <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
+              Wij bouwen websites en slimme automatiseringen voor bedrijven van 5
+              tot 50 mensen. Vaste prijs, eerst zien, dan beslissen. Gebouwd met
+              AI, gecontroleerd door ons.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <ButtonLink href="/contact">
+                Plan een gesprek <Arrow />
+              </ButtonLink>
+              <ButtonLink href="/cases" variant="secondary">
+                Bekijk ons werk
+              </ButtonLink>
+            </div>
+            <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-soft">
+              {guarantees.slice(0, 3).map((g) => (
+                <li key={g.title} className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+                  {g.title}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+          <div className="relative pb-8 lg:pb-0">
+            <BrowserFrame
+              url="wijntripje.nl"
+              src="/werk/wijntripje.jpg"
+              alt="Homepage van Wijntripje.nl, een wijnreisplatform dat wij bouwden"
+              width={1779}
+              height={746}
+              priority
+              className="lg:translate-x-6"
+            />
+            <StatCard
+              value="1 week"
+              label="van idee tot live platform"
+              className="absolute -bottom-2 left-3 sm:left-6"
+            />
+            <StatCard
+              value="50.000"
+              label="bezoekers in het eerste jaar"
+              className="absolute -top-6 right-3 hidden sm:block lg:-right-2"
+            />
+          </div>
+        </Container>
       </section>
 
-      {/* Stats */}
-      <DarkSection>
-        <div className="mx-auto grid max-w-6xl gap-8 px-6 py-16 sm:grid-cols-3">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="font-display text-4xl font-bold text-white sm:text-5xl">
-                {stat.value}
+      {/* Twee diensten */}
+      <section>
+        <Container className="py-24">
+          <SectionIntro
+            eyebrow="Wat we doen"
+            title="Je website haalt de aanvraag binnen. De automatisering handelt hem af."
+            intro="Twee diensten die elkaar versterken. Je kunt met één beginnen, en we zorgen dat ze later naadloos samenwerken."
+          />
+          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+            <div className="flex flex-col rounded-2xl border border-line bg-surface p-8 sm:p-10">
+              <p className="text-sm font-semibold text-accent">Websites en webapplicaties</p>
+              <h3 className="mt-3 font-display text-2xl font-semibold text-ink sm:text-3xl">
+                Een website die klanten oplevert
+              </h3>
+              <CheckList
+                className="mt-6"
+                items={[
+                  "Snel, vindbaar en duidelijk over wat je doet",
+                  "Eén heldere route naar een aanvraag",
+                  "Zelf teksten en projecten aanpassen",
+                  "Webapplicaties en portalen als standaardsoftware niet past",
+                ]}
+              />
+              <div className="mt-auto flex flex-wrap items-center justify-between gap-4 border-t border-line pt-6">
+                <p className="text-sm text-muted">
+                  Vanaf <span className="font-semibold text-ink">{euro(prices.website)}</span> excl. btw
+                </p>
+                <Link
+                  href="/website-laten-maken"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-dark"
+                >
+                  Website laten maken <Arrow />
+                </Link>
+              </div>
+            </div>
+            <div className="flex flex-col rounded-2xl border border-line bg-surface p-8 sm:p-10">
+              <p className="text-sm font-semibold text-accent">AI-automatisering</p>
+              <h3 className="mt-3 font-display text-2xl font-semibold text-ink sm:text-3xl">
+                Werk dat zichzelf doet
+              </h3>
+              <CheckList
+                className="mt-6"
+                items={[
+                  "Offertes en facturen die klaarstaan",
+                  "Opvolging van leads die altijd gebeurt",
+                  "Geen gegevens meer overtypen tussen systemen",
+                  "Een mens controleert waar het ertoe doet",
+                ]}
+              />
+              <div className="mt-auto flex flex-wrap items-center justify-between gap-4 border-t border-line pt-6">
+                <p className="text-sm text-muted">
+                  Vanaf <span className="font-semibold text-ink">{euro(prices.automation)}</span> excl. btw
+                </p>
+                <Link
+                  href="/ai-automatisering"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-dark"
+                >
+                  AI-automatisering <Arrow />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Samen */}
+      <section className="border-y border-line bg-surface">
+        <Container className="py-24">
+          <SectionIntro
+            eyebrow="Samen sterker"
+            title="Zo werken website en automatisering samen"
+            intro="Een voorbeeld: een bezoeker vraagt een offerte aan. Daarna gebeurt het meeste vanzelf, en jij houdt de regie."
+          />
+          <div className="mt-12">
+            <Flow
+              title="Van bezoeker tot klant"
+              steps={[
+                { label: "Bezoeker vindt je", detail: "Via Google of een aanbeveling" },
+                { label: "Vraagt offerte aan", detail: "Kort formulier op je site" },
+                { label: "Concept staat klaar", detail: "Uit jouw prijzen en teksten" },
+                { label: "Jij controleert", detail: "En verstuurt met één klik" },
+                { label: "Opvolging gaat vanzelf", detail: "Herinnering na een paar dagen" },
+              ]}
+            />
+          </div>
+        </Container>
+      </section>
+
+      {/* Werk */}
+      <section>
+        <Container className="py-24">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionIntro
+              eyebrow="Ons werk"
+              title="Geen beloftes, maar dingen die draaien"
+            />
+            <ButtonLink href="/cases" variant="ghost">
+              Alles bekijken <Arrow />
+            </ButtonLink>
+          </div>
+          <Link
+            href="/cases/wijntripje"
+            className="group mt-12 grid overflow-hidden rounded-2xl border border-line bg-surface transition-shadow hover:shadow-xl hover:shadow-ink/5 lg:grid-cols-[1.2fr_1fr]"
+          >
+            <div className="border-b border-line bg-paper p-6 lg:border-b-0 lg:border-r">
+              <BrowserFrame
+                url="wijntripje.nl"
+                src="/werk/wijntripje.jpg"
+                alt="Wijntripje.nl"
+                width={1779}
+                height={746}
+              />
+            </div>
+            <div className="flex flex-col p-8 sm:p-10">
+              <p className="text-sm font-semibold text-accent">Eigen project</p>
+              <h3 className="mt-3 font-display text-2xl font-semibold text-ink">
+                Wijntripje.nl: een wijnreisplatform in één week
+              </h3>
+              <p className="mt-4 leading-relaxed text-muted">
+                Interactieve kaarten, een eigen CMS en automatische content. Inmiddels
+                ook in het Duits, als Weintrips.de.
               </p>
-              <p className="mt-2 text-sm tracking-wide text-white/60">
-                {stat.label}
+              <dl className="mt-8 grid grid-cols-2 gap-6">
+                <div>
+                  <dt className="text-sm text-muted">Gebouwd in</dt>
+                  <dd className="font-display text-3xl font-semibold text-ink">1 week</dd>
+                </div>
+                <div>
+                  <dt className="text-sm text-muted">Bezoekers jaar 1</dt>
+                  <dd className="font-display text-3xl font-semibold text-ink">50.000</dd>
+                </div>
+              </dl>
+              <p className="mt-auto flex items-center gap-2 pt-8 text-sm font-semibold text-accent">
+                Lees de case <Arrow className="transition-transform group-hover:translate-x-1" />
               </p>
             </div>
-          ))}
-        </div>
-      </DarkSection>
-
-      {/* Diensten preview */}
-      <section className="bg-softwhite">
-        <div className="mx-auto max-w-6xl px-6 py-24">
-          <h2 className="text-center font-display text-sm font-semibold uppercase tracking-widest text-steel">
-            Wat we doen
-          </h2>
-          <div className="mt-12 grid gap-8 sm:grid-cols-3">
-            {diensten.map((dienst) => (
-              <div
-                key={dienst.title}
-                className="rounded-xl border border-border bg-white p-8 transition-shadow hover:shadow-md"
-              >
-                <dienst.Icon />
-                <h3 className="mt-5 font-display text-lg font-semibold text-navy">
-                  {dienst.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#374151]">
-                  {dienst.description}
-                </p>
-              </div>
+          </Link>
+          <p className="mt-14 text-sm font-semibold uppercase tracking-[0.14em] text-muted">
+            Ook gebouwd, voor een mediabedrijf
+          </p>
+          <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {mediaExamples.slice(0, 3).map((e) => (
+              <LinkCard key={e.title} href={e.href} title={e.title} text={e.text} />
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Waarom bedrijven met ons werken */}
-      <DarkSection>
-        <div className="mx-auto max-w-6xl px-6 py-24">
-          <h2 className="text-center font-display text-3xl font-bold text-white sm:text-4xl">
-            Waarom bedrijven met ons werken
-          </h2>
-          <div className="mt-14 grid gap-8 sm:grid-cols-2">
-            {reasons.map((reason) => (
-              <div key={reason} className="flex items-center gap-4">
-                <CheckIcon />
-                <p className="text-lg text-white">{reason}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </DarkSection>
-
-      {/* Hoe we samenwerken */}
-      <section style={{ backgroundColor: "#F0F7FF" }}>
-        <div className="mx-auto max-w-6xl px-6 py-24">
-          <h2 className="text-center font-display text-sm font-semibold uppercase tracking-widest text-steel">
-            Hoe we samenwerken
-          </h2>
-          <div className="mt-12 grid gap-8 sm:grid-cols-3">
-            {samenwerkingBlokken.map((blok) => (
-              <Link
-                key={blok.title}
-                href={blok.href}
-                className="group relative flex cursor-pointer flex-col items-center rounded-xl border border-[#DBEAFE] bg-white p-8 text-center transition-shadow hover:shadow-md"
-              >
-                <blok.Icon />
-                <h3 className="mt-5 font-display text-lg font-semibold text-navy">
-                  {blok.title}
-                </h3>
-                <span className="absolute right-4 bottom-4">
-                  <ArrowIcon />
+      {/* Werkwijze */}
+      <section className="border-y border-line bg-surface">
+        <Container className="py-24">
+          <SectionIntro
+            eyebrow="Werkwijze"
+            title="Eerst zien, dan beslissen"
+            intro="Je betaalt pas voor bouwen als je het ontwerp of plan goed vindt. Daarna werken we met een vaste prijs per fase."
+          />
+          <ol className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
+            {steps.map((s, i) => (
+              <li key={s.title} className="bg-surface p-7">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-soft font-display text-sm font-semibold text-accent-dark">
+                  {i + 1}
                 </span>
+                <h3 className="mt-5 font-display text-lg font-semibold text-ink">{s.title}</h3>
+                <p className="mt-2 leading-relaxed text-muted">{s.text}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-8">
+            <ButtonLink href="/werkwijze" variant="ghost">
+              Meer over onze werkwijze <Arrow />
+            </ButtonLink>
+          </div>
+        </Container>
+      </section>
+
+      {/* Eerlijk over AI */}
+      <section>
+        <Container className="py-24">
+          <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
+            <SectionIntro
+              eyebrow="Eerlijk over AI"
+              title="AI doet het voorwerk. Wij nemen de beslissingen."
+              intro="Door met AI te bouwen zijn we sneller en betaalbaarder. Maar niets gaat live zonder dat Frank of Kevin het heeft gecontroleerd."
+            />
+            <div className="grid gap-5 sm:grid-cols-3">
+              {[
+                {
+                  t: "Wat AI doet",
+                  items: ["Eerste versies van code", "Conceptteksten", "Testen en controleren helpen"],
+                },
+                {
+                  t: "Wat wij doen",
+                  items: ["Aanpak en ontwerp bepalen", "Alles nalopen en testen", "Jouw vragen beantwoorden"],
+                },
+                {
+                  t: "Wat van jou blijft",
+                  items: ["Domein en code", "Accounts en data", "De keuze om te stoppen"],
+                },
+              ].map((col) => (
+                <div key={col.t} className="rounded-xl border border-line bg-surface p-6">
+                  <h3 className="font-display text-lg font-semibold text-ink">{col.t}</h3>
+                  <ul className="mt-4 space-y-2.5 text-sm text-ink-soft">
+                    {col.items.map((it) => (
+                      <li key={it} className="flex gap-2">
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                        {it}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Prijzen */}
+      <section className="border-t border-line bg-surface">
+        <Container className="py-24">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionIntro
+              eyebrow="Prijzen"
+              title="Je weet vooraf wat het kost"
+              intro="Vanaf-prijzen excl. btw. Na het eerste gesprek krijg je een vaste prijs per fase."
+            />
+            <ButtonLink href="/prijzen" variant="ghost">
+              Alle prijzen <Arrow />
+            </ButtonLink>
+          </div>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {priceCards.map((p) => (
+              <Link
+                key={p.label}
+                href={p.href}
+                className="rounded-xl border border-line bg-paper p-6 transition-colors hover:border-line-strong"
+              >
+                <p className="text-sm text-muted">{p.label}</p>
+                <p className="mt-2 font-display text-3xl font-semibold text-ink">
+                  <span className="text-base font-normal text-muted">vanaf </span>
+                  {p.value}
+                </p>
               </Link>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Team CTA */}
-      <DarkSection>
-        <div className="mx-auto max-w-6xl px-6 py-24">
-          <h2 className="text-center font-display text-3xl font-bold text-white sm:text-4xl">
-            Benieuwd wat wij voor jou kunnen doen?
-          </h2>
-          <p className="mt-4 text-center text-lg text-white/60">
-            Neem direct contact op met Frank of Kevin.
-          </p>
-          <div className="mt-14 flex flex-col items-center gap-8 sm:flex-row sm:justify-center sm:gap-8">
-            {team.map((member) => (
-              <div key={member.id} className="flex flex-col items-center text-center">
-                {member.photo_url ? (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img
-                    src={member.photo_url}
-                    alt={member.name}
-                    className="h-20 w-20 rounded-full object-cover"
-                  />
-                ) : (
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#2563EB]">
-                    <span className="font-display text-xl font-bold text-white">
-                      {getInitials(member.name)}
-                    </span>
-                  </div>
-                )}
-                <p className="mt-4 font-display text-xl font-semibold text-white">
-                  {member.name}
-                </p>
-                {member.phone && (
-                  <a
-                    href={`tel:${member.phone.replace(/\s/g, "")}`}
-                    className="mt-2 text-sm text-[#38BDF8] transition-colors hover:text-[#6AABEF]"
-                  >
-                    {member.phone}
-                  </a>
-                )}
-                {member.email && (
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="mt-1 text-sm text-[#38BDF8] transition-colors hover:text-[#6AABEF]"
-                  >
-                    {member.email}
-                  </a>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </DarkSection>
+      <Faq items={faq} />
+      <CtaBlock />
     </main>
   );
 }

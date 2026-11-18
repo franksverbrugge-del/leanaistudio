@@ -86,7 +86,7 @@ export default function Logo({
           <p
             className={`${s.subline} tracking-[0.15em] uppercase ${sublineColor}`}
           >
-            Minder gedoe. Meer resultaat.
+            Websites en automatisering
           </p>
         )}
       </div>

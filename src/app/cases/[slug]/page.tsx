@@ -1,182 +1,138 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import DarkSection from "@/components/DarkSection";
-import { getAllSlugs, getCaseBySlug } from "@/lib/cases";
 import { notFound } from "next/navigation";
+import JsonLd from "@/components/JsonLd";
+import { Breadcrumbs, CtaBlock } from "@/components/blocks";
+import { BrowserFrame } from "@/components/visuals";
+import { CheckList, Container, Eyebrow } from "@/components/ui";
+import { cases, getCase } from "@/content/projecten";
+import { SITE_URL } from "@/content/site";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  const slugs = await getAllSlugs();
-  return slugs.map((slug) => ({ slug }));
+export function generateStaticParams() {
+  return cases.map((c) => ({ slug: c.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export const dynamicParams = false;
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const c = await getCaseBySlug(slug);
-
-  if (!c) {
-    return { title: "Case niet gevonden — Lean AI Studio" };
-  }
-
+  const c = getCase(slug);
+  if (!c) return {};
   return {
-    title: `${c.title} — Lean AI Studio`,
-    description: c.description,
+    title: c.title,
+    description: c.summary.slice(0, 158),
+    alternates: { canonical: `/cases/${c.slug}` },
+    openGraph: { images: [{ url: c.image.src, width: c.image.width, height: c.image.height }] },
   };
 }
 
 export default async function CaseDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const c = await getCaseBySlug(slug);
+  const c = getCase(slug);
+  if (!c) notFound();
 
-  if (!c) {
-    notFound();
-  }
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: c.title,
+    description: c.summary,
+    url: `${SITE_URL}/cases/${c.slug}`,
+    image: `${SITE_URL}${c.image.src}`,
+    creator: { "@id": `${SITE_URL}/#organization` },
+  };
 
   return (
     <main>
-      {/* Sectie 1 — Hero */}
-      <DarkSection>
-        <div className="mx-auto max-w-4xl px-6 py-28 sm:py-36">
-          {c.category && (
-            <span className="inline-block rounded-md bg-[#1A2E45] px-3 py-1 text-xs font-medium text-[#38BDF8]">
-              {c.category}
-            </span>
-          )}
-          <h1 className="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+      <JsonLd data={schema} />
+      <Breadcrumbs
+        items={[
+          { href: "/cases", label: "Ons werk" },
+          { href: `/cases/${c.slug}`, label: c.client },
+        ]}
+      />
+      <section className="border-b border-line">
+        <Container className="py-14 sm:py-20">
+          <Eyebrow>{c.kind}</Eyebrow>
+          <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold leading-[1.08] text-ink sm:text-5xl">
             {c.title}
           </h1>
-          <div className="mt-4 flex flex-wrap gap-4 text-sm text-[#8B9AB0]">
-            <span>{c.client}</span>
-            {c.duration && (
-              <>
-                <span>&middot;</span>
-                <span>{c.duration}</span>
-              </>
-            )}
-          </div>
-        </div>
-      </DarkSection>
-
-      {/* Hero afbeelding */}
-      {c.hero_image_url && (
-        <section style={{ backgroundColor: "#F0F7FF" }}>
-          <div className="mx-auto max-w-[900px] px-6 py-12">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={c.hero_image_url}
-              alt={c.title}
-              className="w-full rounded-xl border border-[#DBEAFE] object-cover shadow-md"
-              style={{ maxHeight: 480 }}
-            />
-          </div>
-        </section>
-      )}
-
-      {/* Sectie 2 — Quote (alleen als gevuld) */}
-      {c.client_quote && (
-        <section style={{ backgroundColor: "#F0F7FF" }}>
-          <div className="mx-auto max-w-3xl px-6 py-20 text-center">
-            <blockquote className="font-display text-2xl italic leading-relaxed text-[#0F172A] sm:text-3xl">
-              &ldquo;{c.client_quote}&rdquo;
-            </blockquote>
-            {c.client_quote_author && (
-              <p className="mt-4 text-base text-[#2563EB]">
-                &mdash; {c.client_quote_author}
-              </p>
-            )}
-          </div>
-        </section>
-      )}
-
-      {/* Sectie 3 — Resultaten */}
-      {(c.result_stat_1_value || c.result_stat_2_value) && (
-        <DarkSection>
-          <div className="mx-auto max-w-4xl px-6 py-20">
-            <h2 className="text-center font-display text-3xl font-bold text-white sm:text-4xl">
-              Het resultaat
-            </h2>
-            <div className="mt-12 flex items-center justify-center gap-16">
-              {c.result_stat_1_value && (
-                <div className="text-center">
-                  <p className="font-display text-4xl font-bold text-white sm:text-5xl">
-                    {c.result_stat_1_value}
-                  </p>
-                  <p className="mt-2 text-sm text-[#8B9AB0]">
-                    {c.result_stat_1_label}
-                  </p>
-                </div>
-              )}
-              {c.result_stat_2_value && (
-                <div className="text-center">
-                  <p className="font-display text-4xl font-bold text-white sm:text-5xl">
-                    {c.result_stat_2_value}
-                  </p>
-                  <p className="mt-2 text-sm text-[#8B9AB0]">
-                    {c.result_stat_2_label}
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        </DarkSection>
-      )}
-
-      {/* Sectie 4 — Het verhaal */}
-      <section style={{ backgroundColor: "#F0F7FF" }}>
-        <div className="mx-auto max-w-5xl px-6 py-24">
-          <div className="grid gap-12 sm:grid-cols-3">
-            <div>
-              <h3 className="font-display text-lg font-semibold text-[#0F172A]">
-                De uitdaging
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#374151]">
-                {c.challenge}
-              </p>
-            </div>
-            <div>
-              <h3 className="font-display text-lg font-semibold text-[#0F172A]">
-                De oplossing
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#374151]">
-                {c.solution}
-              </p>
-            </div>
-            <div>
-              <h3 className="font-display text-lg font-semibold text-[#0F172A]">
-                Het resultaat
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#374151]">
-                {c.result}
-              </p>
-            </div>
-          </div>
-        </div>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{c.summary}</p>
+          <dl className="mt-10 grid max-w-2xl grid-cols-3 gap-6 border-t border-line pt-8">
+            {c.stats.map((s) => (
+              <div key={s.label} className="flex flex-col-reverse">
+                <dt className="mt-1 text-sm text-muted">{s.label}</dt>
+                <dd className="font-display text-3xl font-semibold text-ink sm:text-4xl">{s.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </Container>
       </section>
 
-      {/* Sectie 5 — CTA */}
-      <DarkSection>
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 px-6 py-20 sm:flex-row sm:justify-between">
-          <div>
-            <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">
-              Klaar om jouw project te starten?
-            </h2>
-            <p className="mt-2 text-[#8B9AB0]">
-              We realiseren in weken wat normaal maanden duurt.
+      <section>
+        <Container className="py-16">
+          <BrowserFrame
+            url={c.url ? c.url.replace("https://", "") : c.client}
+            src={c.image.src}
+            alt={c.image.alt}
+            width={c.image.width}
+            height={c.image.height}
+            priority
+          />
+          {c.url && (
+            <p className="mt-4 text-sm text-muted">
+              Bekijk het live:{" "}
+              <a href={c.url} className="font-semibold text-accent hover:text-accent-dark" rel="noopener" target="_blank">
+                {c.url.replace("https://", "")}
+              </a>{" "}
+              en{" "}
+              <a href="https://weintrips.de" className="font-semibold text-accent hover:text-accent-dark" rel="noopener" target="_blank">
+                weintrips.de
+              </a>
             </p>
+          )}
+        </Container>
+      </section>
+
+      <section className="border-t border-line bg-surface">
+        <Container className="grid gap-12 py-20 md:grid-cols-3">
+          <div>
+            <h2 className="font-display text-xl font-semibold text-ink">De opdracht</h2>
+            <CheckList items={c.challenge} className="mt-5" />
           </div>
-          <Link
-            href="/contact"
-            className="shrink-0 rounded-md bg-[#38BDF8] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#3A7BC8]"
-          >
-            Plan een kennismaking
-          </Link>
-        </div>
-      </DarkSection>
+          <div>
+            <h2 className="font-display text-xl font-semibold text-ink">Wat we bouwden</h2>
+            <CheckList items={c.solution} className="mt-5" />
+          </div>
+          <div>
+            <h2 className="font-display text-xl font-semibold text-ink">Het resultaat</h2>
+            <CheckList items={c.result} className="mt-5" />
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-line">
+        <Container className="py-14">
+          <p className="text-sm text-muted">Diensten in dit project:</p>
+          <ul className="mt-3 flex flex-wrap gap-3">
+            {c.services.map((s) => (
+              <li key={s.href}>
+                <Link
+                  href={s.href}
+                  className="inline-block rounded-full border border-line-strong bg-surface px-4 py-2 text-sm font-medium text-ink hover:border-ink"
+                >
+                  {s.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      <CtaBlock />
     </main>
   );
 }
