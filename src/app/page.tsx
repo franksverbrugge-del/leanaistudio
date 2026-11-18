@@ -76,10 +76,10 @@ export default function HomePage() {
     <main>
       {/* Hero */}
       <section className="overflow-hidden border-b border-line">
-        <Container className="grid items-center gap-14 pb-20 pt-14 sm:pt-20 lg:grid-cols-[1fr_1.1fr] lg:pb-28">
+        <Container className="grid items-center gap-14 pb-20 pt-14 sm:pt-20 lg:grid-cols-[1.15fr_1fr] lg:pb-28">
           <div>
             <Eyebrow>Websites en automatisering voor het MKB</Eyebrow>
-            <h1 className="mt-5 font-display text-[2.75rem] font-semibold leading-[1.04] text-ink sm:text-6xl xl:text-[4.25rem]">
+            <h1 className="mt-5 font-display text-[2.75rem] font-semibold leading-[1.04] text-ink sm:text-6xl lg:text-[3.5rem] xl:text-[3.75rem]">
               Meer aanvragen.
               <br />
               <span className="text-accent">Minder handwerk.</span>
